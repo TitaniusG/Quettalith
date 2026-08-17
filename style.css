@@ -76,12 +76,103 @@ body {
 .line2 { animation: line-emerge 1.35s 4.10s cubic-bezier(.12,.52,.18,1) forwards; }
 .line3 { animation: line-emerge 1.35s 4.55s cubic-bezier(.12,.52,.18,1) forwards; }
 
-.wordmark {
+/* --- UPRAVENÉ: Zobrazenie QUETTALITH PO čiarach (6.5s) --- */
+.wordmark-split {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
   opacity: 0;
   transform: translateY(2px);
-  animation: wordmark-emerge 1.25s 5.85s cubic-bezier(.16,.62,.2,1) forwards;
+  /* Začiatok animácie: 6.5s (po skončení line3) */
+  animation: wordmark-emerge 1.25s 6.5s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
+.quetta-part, .lith-part {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+}
+
+.quetta-part {
+  clip-path: polygon(0 0, 77% 0, 77% 100%, 0 100%); 
+  animation: 
+    wordmark-emerge 1.25s 6.5s cubic-bezier(.16,.62,.2,1) forwards,
+    no-op 0s 6.5s forwards; 
+}
+
+.lith-part {
+  clip-path: polygon(77% 0, 100% 0, 100% 100%, 77% 100%);
+  
+  /* 
+     Timeline:
+     6.5s: Zobrazenie celého logo
+     8.3s: Odsunutie doprava (lith-slide-out)
+     19.5s: Návrat späť (lith-slide-back) - POSUNUTÉ po zmiznutí nápovedy
+  */
+  animation: 
+    wordmark-emerge 1.25s 6.5s cubic-bezier(.16,.62,.2,1) forwards,
+    lith-slide-out 1.8s 8.3s cubic-bezier(.2, .8, .2, 1) forwards,
+    lith-slide-back 3.0s 19.5s cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+/* --- UPRAVENÉ: Podtexty (vyššie, pomalší fadein, spájanie po zmiznutí) --- */
+.subtext {
+  position: absolute;
+  font-size: 14px;
+  letter-spacing: 0.30em;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.quetta-text {
+  left: 44.5%; 
+  bottom: 60px; /* POSUNUTÉ HORE: z -5px na 60px  */
+  text-align: center;
+  
+  /* 
+     Animácia:
+     10.8s: FadeIn (text-reveal) - 2.0s (pomalšie)
+     12.8s: Pauza na 100% (text-stay) - 4.0s
+     16.8s: FadeOut (text-fade) - 2.0s (pomalšie)
+     18.8s: Úplne zmizne
+     19.5s: Spájanie loga začína (lith-slide-back)
+  */
+  animation: 
+    text-reveal 2.0s 10.8s cubic-bezier(.16,.62,.2,1) forwards,
+    text-stay 4.0s 12.8s ease-in-out forwards,
+    text-fade 2.0s 16.8s cubic-bezier(.16,.62,.2,1) forwards;
+}
+
+.lith-text {
+  left: 91.5%;
+  bottom: 60px; /* POSUNUTÉ HORE: z -5px na 60px */
+  text-align: center;
+  
+  /* 
+     Animácia:
+     10.8s: FadeIn
+     12.8s: Pauza na 100%
+     16.8s: FadeOut
+     18.8s: Úplne zmizne
+     19.5s: Spájanie loga začína
+  */
+  animation: 
+    text-reveal 2.0s 10.8s cubic-bezier(.16,.62,.2,1) forwards,
+    text-stay 4.0s 12.8s ease-in-out forwards,
+    text-fade 2.0s 16.8s cubic-bezier(.16,.62,.2,1) forwards;
+}
+
+/* --- PÔVODNÉ ŠTÝLY (zachované) --- */
 .descriptor {
   margin-left: 40.5%;
   margin-top: 28px;
@@ -95,7 +186,8 @@ body {
   font-weight: 600;
   letter-spacing: .38em;
   white-space: nowrap;
-  animation: text-reveal 1.2s 7.05s cubic-bezier(.16,.62,.2,1) forwards;
+  /* Začiatok: 21.5s (posunutý po spájaní loga) */
+  animation: text-reveal 1.2s 21.5s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
 .strapline {
@@ -107,7 +199,8 @@ body {
   font-weight: 400;
   letter-spacing: .42em;
   white-space: nowrap;
-  animation: text-reveal 1.2s 8.05s cubic-bezier(.16,.62,.2,1) forwards;
+  /* Začiatok: 22.7s */
+  animation: text-reveal 1.2s 22.7s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
 .strapline sup {
@@ -122,7 +215,8 @@ body {
   right: 6vw;
   bottom: 7.5vh;
   text-align: right;
-  animation: soft-reveal 1.2s 7.05s both cubic-bezier(.16,.62,.2,1);
+  /* Začiatok: 23.5s */
+  animation: soft-reveal 1.2s 23.5s both cubic-bezier(.16,.62,.2,1);
 }
 
 .domain {
@@ -131,6 +225,9 @@ body {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: .28em;
+  /* Začiatok: 23.5s */
+  opacity: 0;
+  animation: text-reveal 1.2s 23.5s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
 .label {
@@ -139,12 +236,20 @@ body {
   font-size: 9px;
   font-weight: 500;
   letter-spacing: .25em;
+  /* Začiatok: 24.3s */
+  opacity: 0;
+  animation: 
+    text-reveal 1.2s 24.3s cubic-bezier(.16,.62,.2,1) forwards,
+    acquisition-pulse 7.5s 24.3s ease-in-out;
 }
 
 .email {
   color: var(--muted);
   font-size: 10px;
   letter-spacing: .06em;
+  /* Začiatok: 25.1s */
+  opacity: 0;
+  animation: text-reveal 1.2s 25.1s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
 .footer {
@@ -156,8 +261,11 @@ body {
   font-weight: 500;
   letter-spacing: .22em;
   opacity: 0;
-  animation: soft-reveal 1.2s 7.55s both cubic-bezier(.16,.62,.2,1);
+  /* Začiatok: 26.5s (po emaili) */
+  animation: soft-reveal 1.2s 26.5s both cubic-bezier(.16,.62,.2,1);
 }
+
+/* --- ANIMÁCIE (Keyframes) --- */
 
 @keyframes divider-emerge {
   from { transform: scaleY(0); opacity: 0; }
@@ -190,6 +298,16 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes text-stay {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes text-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 @keyframes soft-reveal {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
@@ -200,53 +318,22 @@ body {
   to { opacity: 1; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .piece, .title, .strapline, .acquisition, .footer {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    clip-path: none !important;
-  }
+@keyframes lith-slide-out {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(60px); }
 }
 
-@media (max-width: 900px) {
-  .hero { left: 8vw; width: 72vw; }
-  .acquisition { right: 7vw; }
+@keyframes lith-slide-back {
+  0% { transform: translateX(60px); }
+  100% { transform: translateX(0); }
 }
 
-@media (max-width: 640px) {
-  .hero {
-    left: 8vw;
-    top: 40%;
-    width: 84vw;
-  }
+@keyframes no-op {
+  0% { opacity: 1; }
+  100% { opacity: 1; }
+}
 
-  .descriptor {
-    margin-left: 40%;
-    margin-top: 18px;
-  }
-
-  .title {
-    font-size: 9px;
-    letter-spacing: .24em;
-  }
-
-  .strapline {
-    margin-top: 8px;
-    font-size: 8px;
-    letter-spacing: .25em;
-  }
-
-  .acquisition {
-    left: 8vw;
-    right: auto;
-    bottom: 5rem;
-    text-align: left;
-  }
-
-  .footer {
-    left: 8vw;
-    bottom: 1.8rem;
-    font-size: 7px;
-  }
+@keyframes acquisition-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
