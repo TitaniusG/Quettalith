@@ -126,7 +126,7 @@ body {
 .subtext {
   position: absolute;
   font-size: 14px;
-  letter-spacing: 0.30em;
+  letter-spacing: 0.15em;
   color: var(--muted);
   opacity: 0;
   transform: translateY(4px);
@@ -135,8 +135,8 @@ body {
 }
 
 .quetta-text {
-  left: 44.5%; 
-  bottom: 60px; /* POSUNUTÉ HORE: z -5px na 60px  */
+  left: 46%; 
+  bottom: 50px; /* Desktop: 50px */
   text-align: center;
   
   /* 
@@ -154,8 +154,8 @@ body {
 }
 
 .lith-text {
-  left: 91.5%;
-  bottom: 60px; /* POSUNUTÉ HORE: z -5px na 60px */
+  left: 93%;
+  bottom: 50px; /* Desktop: 50px */
   text-align: center;
   
   /* 
@@ -336,4 +336,59 @@ body {
 @keyframes acquisition-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.7; }
+}
+
+/* --- MOBLILE FIX: Úpravy pre malé obrazovky (max 768px) --- */
+@media screen and (max-width: 768px) {
+  .logo {
+    /* Na mobile môže byť potrebné zmeniť aspect-ratio, ak sa logo deformuje */
+    aspect-ratio: auto; 
+    height: 60vh; /* Prispôsobiť výšku loga na mobile */
+    width: 90vw; /* Zmenšiť šírku */
+    left: 5%; /* Posunúť trochu doľava pre väčšiu dostupnosť */
+  }
+
+  .wordmark-split {
+    /* Uistiť sa, že wordmark je na správnej pozícii */
+    width: 100%;
+    height: 100%;
+  }
+
+  .queta-part, .lith-part {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* --- MOBLILE: Úpravy nápovedy --- */
+  .subtext {
+    font-size: 12px; /* Zmenšiť font pre mobil */
+    letter-spacing: 0.1em; /* Mierne zmenšiť medzeru */
+    white-space: normal; /* Povoliť zalomenie riadkov, ak je text dlhý */
+  }
+
+  .queta-text {
+    /* Na mobile je šírka malá, preto posunieme texty tak, aby sa neprekryli */
+    /* QUETTA je vľavo, LITH vpravo. Na mobile by mali byť pod sebou alebo vedľa seba s veľkou medzerou */
+    left: 5%; /* Posunúť doľava, aby bolo priestoru */
+    bottom: 15px; /* Znížiť vzdialenosť od spodku loga, aby sa zmestilo */
+    width: 40%; /* Obmedziť šírku textu */
+    transform: translateX(0); /* Odstrániť akýkoľvek posun */
+  }
+
+  .lith-text {
+    /* LITH je vpravo, posunieme ho tak, aby nebolo príliš blízko k QUETTE */
+    left: 55%; /* Posunúť doprava, aby bolo dostatočne vzdialené od QUETTE */
+    bottom: 15px; /* Rovnaká vzdialenosť ako QUETTE */
+    width: 40%; /* Obmedziť šírku textu */
+    transform: translateX(0);
+  }
+
+  /* Ak sa texty stále prekrývajú, môžeme ich dať pod seba (voliteľné) */
+  /* 
+  .lith-text {
+    left: 5%; /* Vrátiť na začiatok
+    bottom: 10px; /* Posunúť nižšie
+    transform: translateX(0);
+  }
+  */
 }
