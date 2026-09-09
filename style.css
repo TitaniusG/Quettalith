@@ -5,6 +5,12 @@
   --text: #f2f3f1;
   --muted: #8d9199;
   --faint: #555961;
+  --border: rgba(242, 243, 241, 0.15);
+  --border-hover: rgba(242, 243, 241, 0.5);
+  --glow: rgba(242, 243, 241, 0.08);
+  /* Pixel-accurate positions from wordmark.png analysis (1298px wide) */
+  --quetta-left: 36.9%;    /* x=479/1298 — left edge of letter Q */
+  --quetta-center: 56.7%;  /* midpoint of QUETTA text */
 }
 
 * { box-sizing: border-box; }
@@ -30,14 +36,19 @@ body {
   background: var(--bg);
 }
 
+/* ===== HERO ===== */
+/* Positioned so QUETTA's center sits at 50vw (screen center).
+   left = 50vw - 0.567 * width.  With width = 64vw → left = 13.7vw. */
 .hero {
   position: absolute;
-  left: 8.5vw;
+  left: 13.7vw;
   top: 50%;
   width: min(64vw, 985px);
   transform: translateY(-50%);
-  animation: hero-settle 10s cubic-bezier(.2,.7,.2,1) both;
+  animation: hero-settle 22s cubic-bezier(.2,.7,.2,1) both;
 }
+
+/* ===== LOGO ===== */
 
 .logo {
   position: relative;
@@ -76,8 +87,9 @@ body {
 .line2 { animation: line-emerge 1.35s 4.10s cubic-bezier(.12,.52,.18,1) forwards; }
 .line3 { animation: line-emerge 1.35s 4.55s cubic-bezier(.12,.52,.18,1) forwards; }
 
-/* --- UPRAVENÉ: Zobrazenie QUETTALITH PO čiarach (6.5s) --- */
-.wordmark-split {
+/* ===== WORDMARK (UNIFIED — NO SPLIT) ===== */
+
+.wordmark-unified {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -85,138 +97,139 @@ body {
   pointer-events: none;
   user-select: none;
   z-index: 10;
+}
+
+.wordmark-quetta {
+  clip-path: polygon(0 0, 77% 0, 77% 100%, 0 100%);
   opacity: 0;
-  transform: translateY(2px);
-  /* Začiatok animácie: 6.5s (po skončení line3) */
-  animation: wordmark-emerge 1.25s 6.5s cubic-bezier(.16,.62,.2,1) forwards;
+  animation: wordmark-emerge 1.25s 6.0s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
-.quetta-part, .lith-part {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0;
-}
-
-.quetta-part {
-  clip-path: polygon(0 0, 77% 0, 77% 100%, 0 100%); 
-  animation: 
-    wordmark-emerge 1.25s 6.5s cubic-bezier(.16,.62,.2,1) forwards,
-    no-op 0s 6.5s forwards; 
-}
-
-.lith-part {
+.wordmark-lith {
   clip-path: polygon(77% 0, 100% 0, 100% 100%, 77% 100%);
-  
-  /* 
-     Timeline:
-     6.5s: Zobrazenie celého logo
-     8.3s: Odsunutie doprava (lith-slide-out)
-     19.5s: Návrat späť (lith-slide-back) - POSUNUTÉ po zmiznutí nápovedy
-  */
-  animation: 
-    wordmark-emerge 1.25s 6.5s cubic-bezier(.16,.62,.2,1) forwards,
-    lith-slide-out 1.8s 8.3s cubic-bezier(.2, .8, .2, 1) forwards,
-    lith-slide-back 3.0s 19.5s cubic-bezier(.2, .8, .2, 1) forwards;
+  opacity: 0;
+  animation:
+    wordmark-emerge 1.25s 6.0s cubic-bezier(.16,.62,.2,1) forwards,
+    lith-fade-out 1.0s 8.5s ease-in-out forwards,
+    lith-fade-in 1.0s 11.5s ease-in-out forwards;
 }
 
-/* --- UPRAVENÉ: Podtexty (vyššie, pomalší fadein, spájanie po zmiznutí) --- */
-.subtext {
+/* ===== NONILLION SUBTITLE (centered under QUETTA text) ===== */
+
+.nonillion-wrap {
   position: absolute;
-  font-size: 14px;
+  left: var(--quetta-center);
+  bottom: -32px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.nonillion-text {
+  font-size: clamp(11px, 1vw, 14px);
   letter-spacing: 0.15em;
   color: var(--muted);
   opacity: 0;
-  transform: translateY(4px);
-  pointer-events: none;
   white-space: nowrap;
+  animation:
+    nonillion-reveal 1.0s 8.5s cubic-bezier(.16,.62,.2,1) forwards,
+    nonillion-fade 1.0s 11.5s ease-in-out forwards;
 }
 
-.quetta-text {
-  left: 46%; 
-  bottom: 50px; /* Desktop: 50px */
-  text-align: center;
-  
-  /* 
-     Animácia:
-     10.8s: FadeIn (text-reveal) - 2.0s (pomalšie)
-     12.8s: Pauza na 100% (text-stay) - 4.0s
-     16.8s: FadeOut (text-fade) - 2.0s (pomalšie)
-     18.8s: Úplne zmizne
-     19.5s: Spájanie loga začína (lith-slide-back)
-  */
-  animation: 
-    text-reveal 2.0s 10.8s cubic-bezier(.16,.62,.2,1) forwards,
-    text-stay 4.0s 12.8s ease-in-out forwards,
-    text-fade 2.0s 16.8s cubic-bezier(.16,.62,.2,1) forwards;
-}
-
-.lith-text {
-  left: 93%;
-  bottom: 50px; /* Desktop: 50px */
-  text-align: center;
-  
-  /* 
-     Animácia:
-     10.8s: FadeIn
-     12.8s: Pauza na 100%
-     16.8s: FadeOut
-     18.8s: Úplne zmizne
-     19.5s: Spájanie loga začína
-  */
-  animation: 
-    text-reveal 2.0s 10.8s cubic-bezier(.16,.62,.2,1) forwards,
-    text-stay 4.0s 12.8s ease-in-out forwards,
-    text-fade 2.0s 16.8s cubic-bezier(.16,.62,.2,1) forwards;
-}
-
-/* --- PÔVODNÉ ŠTÝLY (zachované) --- */
-.descriptor {
-  margin-left: 40.5%;
-  margin-top: 28px;
-}
-
-.title {
-  color: var(--text);
-  opacity: 0;
-  transform: translateY(4px);
-  font-size: clamp(12px, .94vw, 16px);
-  font-weight: 600;
-  letter-spacing: .38em;
-  white-space: nowrap;
-  /* Začiatok: 21.5s (posunutý po spájaní loga) */
-  animation: text-reveal 1.2s 21.5s cubic-bezier(.16,.62,.2,1) forwards;
-}
-
-.strapline {
-  margin-top: 13px;
-  color: var(--muted);
-  opacity: 0;
-  transform: translateY(3px);
-  font-size: clamp(10px, .72vw, 13px);
-  font-weight: 400;
-  letter-spacing: .42em;
-  white-space: nowrap;
-  /* Začiatok: 22.7s */
-  animation: text-reveal 1.2s 22.7s cubic-bezier(.16,.62,.2,1) forwards;
-}
-
-.strapline sup {
+.nonillion-text sup {
   position: relative;
-  top: -.25em;
-  font-size: .7em;
+  top: -0.25em;
+  font-size: 0.7em;
   letter-spacing: 0;
 }
+
+/* ===== FINAL SEQUENCE (left-aligned to Q edge) ===== */
+
+.final-sequence {
+  margin-left: var(--quetta-left);
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.tagline {
+  opacity: 0;
+  transform: translateY(2px);
+  white-space: nowrap;
+}
+
+.tagline + .tagline {
+  margin-top: 18px;
+}
+
+.tagline-1 {
+  color: var(--text);
+  font-size: clamp(11px, 1.1vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  animation: text-reveal 1.2s 13.5s cubic-bezier(.16,.62,.2,1) forwards;
+}
+
+.tagline-2 {
+  color: var(--muted);
+  font-size: clamp(12px, 1.15vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  animation: text-reveal 1.2s 15.0s cubic-bezier(.16,.62,.2,1) forwards;
+}
+
+.tagline-3 {
+  color: var(--text);
+  font-size: clamp(13px, 1.3vw, 18px);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  animation: text-reveal 1.2s 16.5s cubic-bezier(.16,.62,.2,1) forwards;
+}
+
+.tagline sup {
+  position: relative;
+  top: -0.25em;
+  font-size: 0.65em;
+  letter-spacing: 0;
+}
+
+/* ===== CTA BUTTON ===== */
+
+.cta-button {
+  align-self: flex-start;
+  margin-top: 38px;
+  padding: 14px 32px;
+  color: var(--text);
+  font-size: clamp(10px, 0.85vw, 12px);
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+  animation: cta-reveal 1.2s 18.0s cubic-bezier(.16,.62,.2,1) forwards;
+}
+
+.cta-button:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 24px var(--glow), inset 0 0 24px rgba(242, 243, 241, 0.03);
+  color: #ffffff;
+}
+
+.cta-button:active {
+  opacity: 0.85;
+}
+
+/* ===== ACQUISITION ===== */
 
 .acquisition {
   position: absolute;
   right: 6vw;
   bottom: 7.5vh;
   text-align: right;
-  /* Začiatok: 23.5s */
-  animation: soft-reveal 1.2s 23.5s both cubic-bezier(.16,.62,.2,1);
+  animation: soft-reveal 1.2s 19.5s both cubic-bezier(.16,.62,.2,1);
 }
 
 .domain {
@@ -225,9 +238,8 @@ body {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: .28em;
-  /* Začiatok: 23.5s */
   opacity: 0;
-  animation: text-reveal 1.2s 23.5s cubic-bezier(.16,.62,.2,1) forwards;
+  animation: text-reveal 1.2s 19.5s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
 .label {
@@ -236,21 +248,21 @@ body {
   font-size: 9px;
   font-weight: 500;
   letter-spacing: .25em;
-  /* Začiatok: 24.3s */
   opacity: 0;
-  animation: 
-    text-reveal 1.2s 24.3s cubic-bezier(.16,.62,.2,1) forwards,
-    acquisition-pulse 7.5s 24.3s ease-in-out;
+  animation:
+    text-reveal 1.2s 20.3s cubic-bezier(.16,.62,.2,1) forwards,
+    acquisition-pulse 7.5s 21.5s ease-in-out;
 }
 
 .email {
   color: var(--muted);
   font-size: 10px;
   letter-spacing: .06em;
-  /* Začiatok: 25.1s */
   opacity: 0;
-  animation: text-reveal 1.2s 25.1s cubic-bezier(.16,.62,.2,1) forwards;
+  animation: text-reveal 1.2s 21.1s cubic-bezier(.16,.62,.2,1) forwards;
 }
+
+/* ===== FOOTER ===== */
 
 .footer {
   position: absolute;
@@ -261,11 +273,24 @@ body {
   font-weight: 500;
   letter-spacing: .22em;
   opacity: 0;
-  /* Začiatok: 26.5s (po emaili) */
-  animation: soft-reveal 1.2s 26.5s both cubic-bezier(.16,.62,.2,1);
+  animation: soft-reveal 1.2s 22.0s both cubic-bezier(.16,.62,.2,1);
 }
 
-/* --- ANIMÁCIE (Keyframes) --- */
+/* ===== SCREEN READER ONLY ===== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== KEYFRAMES ===== */
 
 @keyframes divider-emerge {
   from { transform: scaleY(0); opacity: 0; }
@@ -293,19 +318,34 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes lith-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes lith-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes nonillion-reveal {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes nonillion-fade {
+  from { opacity: 1; transform: translateX(-50%) translateY(0); }
+  to { opacity: 0; transform: translateX(-50%) translateY(0); }
+}
+
 @keyframes text-reveal {
   from { opacity: 0; transform: translateY(2px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes text-stay {
-  from { opacity: 1; transform: translateY(0); }
+@keyframes cta-reveal {
+  from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes text-fade {
-  from { opacity: 1; }
-  to { opacity: 0; }
 }
 
 @keyframes soft-reveal {
@@ -318,77 +358,128 @@ body {
   to { opacity: 1; }
 }
 
-@keyframes lith-slide-out {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(60px); }
-}
-
-@keyframes lith-slide-back {
-  0% { transform: translateX(60px); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes no-op {
-  0% { opacity: 1; }
-  100% { opacity: 1; }
-}
-
 @keyframes acquisition-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.7; }
 }
 
-/* --- MOBLILE FIX: Úpravy pre malé obrazovky (max 768px) --- */
+/* ===== RESPONSIVE ===== */
+
 @media screen and (max-width: 768px) {
+  .hero {
+    left: 50vw;
+    width: 92vw;
+    transform: translate(-50%, -50%);
+  }
+
   .logo {
-    /* Na mobile môže byť potrebné zmeniť aspect-ratio, ak sa logo deformuje */
-    aspect-ratio: auto; 
-    height: 60vh; /* Prispôsobiť výšku loga na mobile */
-    width: 90vw; /* Zmenšiť šírku */
-    left: 5%; /* Posunúť trochu doľava pre väčšiu dostupnosť */
+    aspect-ratio: 1298 / 419;
   }
 
-  .wordmark-split {
-    /* Uistiť sa, že wordmark je na správnej pozícii */
-    width: 100%;
-    height: 100%;
+  .nonillion-wrap {
+    bottom: -24px;
   }
 
-  .queta-part, .lith-part {
-    width: 100%;
-    height: 100%;
+  .nonillion-text {
+    font-size: 11px;
+    letter-spacing: 0.1em;
   }
 
-  /* --- MOBLILE: Úpravy nápovedy --- */
-  .subtext {
-    font-size: 12px; /* Zmenšiť font pre mobil */
-    letter-spacing: 0.1em; /* Mierne zmenšiť medzeru */
-    white-space: normal; /* Povoliť zalomenie riadkov, ak je text dlhý */
+  .final-sequence {
+    margin-top: 45px;
   }
 
-  .queta-text {
-    /* Na mobile je šírka malá, preto posunieme texty tak, aby sa neprekryli */
-    /* QUETTA je vľavo, LITH vpravo. Na mobile by mali byť pod sebou alebo vedľa seba s veľkou medzerou */
-    left: 5%; /* Posunúť doľava, aby bolo priestoru */
-    bottom: 15px; /* Znížiť vzdialenosť od spodku loga, aby sa zmestilo */
-    width: 40%; /* Obmedziť šírku textu */
-    transform: translateX(0); /* Odstrániť akýkoľvek posun */
+  .tagline + .tagline {
+    margin-top: 14px;
   }
 
-  .lith-text {
-    /* LITH je vpravo, posunieme ho tak, aby nebolo príliš blízko k QUETTE */
-    left: 55%; /* Posunúť doprava, aby bolo dostatočne vzdialené od QUETTE */
-    bottom: 15px; /* Rovnaká vzdialenosť ako QUETTE */
-    width: 40%; /* Obmedziť šírku textu */
-    transform: translateX(0);
+  .tagline-1 {
+    font-size: 11px;
+    letter-spacing: 0.22em;
   }
 
-  /* Ak sa texty stále prekrývajú, môžeme ich dať pod seba (voliteľné) */
-  /* 
-  .lith-text {
-    left: 5%; /* Vrátiť na začiatok
-    bottom: 10px; /* Posunúť nižšie
-    transform: translateX(0);
+  .tagline-2 {
+    font-size: 12px;
+    letter-spacing: 0.06em;
   }
-  */
+
+  .tagline-3 {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+  }
+
+  .cta-button {
+    margin-top: 28px;
+    padding: 12px 24px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
+
+  .acquisition {
+    right: 5vw;
+    bottom: 5vh;
+  }
+
+  .domain {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
+
+  .label {
+    font-size: 8px;
+    letter-spacing: 0.2em;
+  }
+
+  .email {
+    font-size: 9px;
+  }
+
+  .footer {
+    left: 5vw;
+    bottom: 2vh;
+    font-size: 7px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero {
+    width: 94vw;
+  }
+
+  .nonillion-wrap {
+    bottom: -20px;
+  }
+
+  .nonillion-text {
+    font-size: 10px;
+  }
+
+  .final-sequence {
+    margin-top: 38px;
+  }
+
+  .tagline + .tagline {
+    margin-top: 12px;
+  }
+
+  .tagline-1 {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
+
+  .tagline-2 {
+    font-size: 11px;
+  }
+
+  .tagline-3 {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+
+  .cta-button {
+    margin-top: 22px;
+    padding: 10px 20px;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
 }
