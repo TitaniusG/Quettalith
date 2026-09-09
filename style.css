@@ -195,11 +195,12 @@ body {
   letter-spacing: 0;
 }
 
-/* ===== CTA BUTTON ===== */
+/* ===== CTA BUTTON (top-right header nav) ===== */
 
 .cta-button {
-  align-self: center;
-  margin-top: 38px;
+  position: absolute;
+  top: 7.5vh;
+  right: 6vw;
   padding: 14px 32px;
   color: var(--text);
   font-size: clamp(10px, 0.85vw, 12px);
@@ -211,6 +212,7 @@ body {
   transform: translateY(4px);
   transition: border-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
   animation: cta-reveal 1.2s 18.0s cubic-bezier(.16,.62,.2,1) forwards;
+  z-index: 20;
 }
 
 .cta-button:hover {
@@ -349,6 +351,11 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes cta-reveal-center {
+  from { opacity: 0; transform: translateX(50%) translateY(4px); }
+  to { opacity: 1; transform: translateX(50%) translateY(0); }
+}
+
 @keyframes soft-reveal {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
@@ -410,10 +417,11 @@ body {
   }
 
   .cta-button {
-    margin-top: 28px;
-    padding: 12px 24px;
-    font-size: 10px;
-    letter-spacing: 0.22em;
+    top: 4vh;
+    right: 5vw;
+    padding: 10px 20px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
   }
 
   .acquisition {
@@ -478,9 +486,11 @@ body {
   }
 
   .cta-button {
-    margin-top: 22px;
-    padding: 10px 20px;
-    font-size: 9px;
-    letter-spacing: 0.18em;
+    top: 3vh;
+    right: 50%;
+    padding: 8px 16px;
+    font-size: 8px;
+    letter-spacing: 0.16em;
+    animation: cta-reveal-center 1.2s 18.0s cubic-bezier(.16,.62,.2,1) forwards;
   }
 }
