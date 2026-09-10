@@ -35,12 +35,12 @@
 /* ===== HERO LOGO ROW ===== */
 
 .enter-hero {
-  padding: 18vh 6vw 6vh;
+  padding: 14vh 6vw 4vh;
 }
 
 .enter-logo {
   position: relative;
-  width: clamp(560px, 58vw, 900px);
+  width: clamp(280px, 29vw, 450px);
   aspect-ratio: 1298 / 419;
   margin: 0 auto;
 }
@@ -214,11 +214,11 @@
   }
 
   .enter-hero {
-    padding: 14vh 5vw 4vh;
+    padding: 12vh 5vw 3vh;
   }
 
   .enter-logo {
-    width: min(92vw, 680px);
+    width: min(80vw, 340px);
   }
 
   .enter-content {
@@ -252,11 +252,11 @@
 
 @media screen and (max-width: 480px) {
   .enter-hero {
-    padding: 10vh 5vw 3vh;
+    padding: 10vh 5vw 2vh;
   }
 
   .enter-logo {
-    width: 94vw;
+    width: 72vw;
   }
 
   .enter-line {
