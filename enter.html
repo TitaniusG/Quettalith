@@ -1,3 +1,4 @@
+html
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,7 +27,8 @@
           <img class="enter-piece" src="line-3.png" alt="">
         </div>
         <img class="enter-piece enter-wordmark-piece" src="wordmark.png" alt="">
-        <span class="sr-only">QUETTALITH</span>
+        <!-- ZMENA: <span class="sr-only"> nahradené za <h1 class="sr-only"> -->
+        <h1 class="sr-only">QUETTALITH</h1>
       </div>
     </section>
 
@@ -71,12 +73,29 @@
 
       <section class="enter-block enter-cta-block" data-block="7">
         <p class="enter-line enter-headline">THE MEANING IS YOURS TO DEFINE.</p>
-        <a class="enter-enquiry" href="mailto:quettalith@atomicmail.io">MAKE AN ENQUIRY →</a>
-        <p class="enter-line enter-email">quettalith@atomicmail.io</p>
+        <!-- ZMENA: href="mailto:..." nahradené za href="#" + pridané id="enquiry-btn" -->
+        <a class="enter-enquiry" id="enquiry-btn" href="#">MAKE AN ENQUIRY →</a>
+        <!-- ZMENA: "quettalith@atomicmail.io" nahradené za "quettalith [at] atomicmail.io" -->
+        <p class="enter-line enter-email">quettalith [at] atomicmail.io</p>
       </section>
     </div>
 
     <footer class="enter-footer">[ QUETTALITH // ALL RIGHTS RESERVED ]</footer>
   </main>
+
+  <!-- ZMENA: Pridaný JavaScript pred </body> na ochranu e-mailu -->
+  <script>
+  (function() {
+    var user = "quettalith";
+    var domain = "atomicmail" + "." + "io";
+    var email = user + "@" + domain;
+    var btn = document.getElementById("enquiry-btn");
+    if (btn) {
+      btn.href = "mailto:" + email
+        + "?subject=" + encodeURIComponent("Quettalith.com — Enquiry");
+    }
+  })();
+  </script>
+
 </body>
 </html>
