@@ -35,25 +35,21 @@
 /* ===== HERO LOGO ROW ===== */
 
 .enter-hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(20px, 3vw, 48px);
   padding: 18vh 6vw 6vh;
 }
 
-.enter-monolith {
-  width: clamp(70px, 9vw, 130px);
-  height: auto;
-  display: block;
-  object-fit: contain;
-  pointer-events: none;
-  user-select: none;
+.enter-logo {
+  position: relative;
+  width: clamp(560px, 58vw, 900px);
+  aspect-ratio: 1298 / 419;
+  margin: 0 auto;
 }
 
-.enter-wordmark {
-  width: clamp(200px, 28vw, 420px);
-  height: auto;
+.enter-piece {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   display: block;
   object-fit: contain;
   pointer-events: none;
@@ -219,15 +215,10 @@
 
   .enter-hero {
     padding: 14vh 5vw 4vh;
-    gap: 16px;
   }
 
-  .enter-monolith {
-    width: 60px;
-  }
-
-  .enter-wordmark {
-    width: 180px;
+  .enter-logo {
+    width: min(92vw, 680px);
   }
 
   .enter-content {
@@ -261,17 +252,11 @@
 
 @media screen and (max-width: 480px) {
   .enter-hero {
-    flex-direction: column;
-    gap: 12px;
     padding: 10vh 5vw 3vh;
   }
 
-  .enter-monolith {
-    width: 50px;
-  }
-
-  .enter-wordmark {
-    width: 160px;
+  .enter-logo {
+    width: 94vw;
   }
 
   .enter-line {
