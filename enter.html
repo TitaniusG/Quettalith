@@ -12,11 +12,11 @@
 </head>
 <body>
   <main class="page enter-page">
-    <header class="enter-header">
-      <a class="enter-back" href="index.html">[ BACK ]</a>
-    </header>
 
-    <section class="enter-hero" aria-label="QUETTALITH">
+    <!-- FIXED TOP BAR: [ BACK ] + LOGO + WORDMARK -->
+    <header class="enter-header" aria-label="QUETTALITH">
+      <a class="enter-back" href="index.html">[ BACK ]</a>
+
       <div class="enter-logo">
         <div class="enter-graphic">
           <img class="enter-piece" src="monolith.png" alt="">
@@ -26,10 +26,9 @@
           <img class="enter-piece" src="line-3.png" alt="">
         </div>
         <img class="enter-piece enter-wordmark-piece" src="wordmark.png" alt="">
-        <!-- ZMENA: <span class="sr-only"> nahradené za <h1 class="sr-only"> -->
         <h1 class="sr-only">QUETTALITH</h1>
       </div>
-    </section>
+    </header>
 
     <div class="enter-content">
       <section class="enter-block" data-block="1">
@@ -72,9 +71,7 @@
 
       <section class="enter-block enter-cta-block" data-block="7">
         <p class="enter-line enter-headline">THE MEANING IS YOURS TO DEFINE.</p>
-        <!-- ZMENA: href="mailto:..." nahradené za href="#" + pridané id="enquiry-btn" -->
         <a class="enter-enquiry" id="enquiry-btn" href="#">MAKE AN ENQUIRY →</a>
-        <!-- ZMENA: "quettalith@atomicmail.io" nahradené za "quettalith [at] atomicmail.io" -->
         <p class="enter-line enter-email">quettalith [at] atomicmail.io</p>
       </section>
     </div>
@@ -82,7 +79,6 @@
     <footer class="enter-footer">[ QUETTALITH // ALL RIGHTS RESERVED ]</footer>
   </main>
 
-  <!-- ZMENA: Pridaný JavaScript pred </body> na ochranu e-mailu -->
   <script>
   (function() {
     var user = "quettalith";
