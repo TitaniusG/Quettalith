@@ -20,7 +20,7 @@
   color: var(--muted);
   font-size: clamp(10px, 0.85vw, 12px);
   font-weight: 500;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.28em;
   text-decoration: none;
   border: 1px solid var(--border);
   transition: border-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
@@ -78,40 +78,46 @@
 }
 
 .enter-block {
-  margin-bottom: 72px;
+  margin-bottom: 58px;
 }
 
 .enter-block:last-child {
   margin-bottom: 0;
 }
 
+/* ===== TYPOGRAPHIC HIERARCHY ===== */
+
+/* LEVEL 3 — BODY TEXT */
 .enter-line {
   margin: 0;
-  padding: 5px 0;
+  padding: 0;
   color: var(--muted);
-  font-size: clamp(13px, 1.15vw, 16px);
+  font-size: clamp(15px, 1.25vw, 18px);
   font-weight: 400;
-  line-height: 1.8;
-  letter-spacing: 0.04em;
+  line-height: 1.65;
+  letter-spacing: 0.025em;
   opacity: 0;
   transform: translateY(8px);
   animation: enter-fade-in 0.8s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
+/* LEVEL 1 — PRIMARY HEADLINES */
 .enter-headline {
   color: var(--text);
-  font-size: clamp(16px, 1.5vw, 21px);
+  font-size: clamp(19px, 1.7vw, 24px);
   font-weight: 600;
-  letter-spacing: 0.22em;
-  line-height: 1.5;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
 }
 
+/* LEVEL 2a — SECONDARY HEADING: QUETTA × LITH */
 .enter-accent {
   color: var(--text);
-  font-size: clamp(14px, 1.25vw, 18px);
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  margin-bottom: 4px;
+  font-size: clamp(17px, 1.4vw, 20px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  margin-bottom: 10px;
 }
 
 .enter-line sup {
@@ -121,7 +127,7 @@
   letter-spacing: 0;
 }
 
-/* Staggered reveal — each block fades in sequentially */
+/* ===== STAGGERED REVEAL — UNCHANGED ===== */
 .enter-block[data-block="1"] .enter-line { animation-delay: 0.2s; }
 .enter-block[data-block="2"] .enter-line:nth-child(1) { animation-delay: 0.5s; }
 .enter-block[data-block="2"] .enter-line:nth-child(2) { animation-delay: 0.65s; }
@@ -146,32 +152,49 @@
 .enter-block[data-block="7"] .enter-enquiry { animation-delay: 4.4s; }
 .enter-block[data-block="7"] .enter-email { animation-delay: 4.55s; }
 
+/* ===== BLOCK-SPECIFIC SPACING ===== */
+
+/* Block 3 — QUETTA × LITH deserves extra breathing room */
+.enter-block[data-block="3"] {
+  margin-top: 68px;
+  margin-bottom: 68px;
+}
+
+/* Block 6 — QUETTALITH.COM as identity anchor */
+.enter-block[data-block="6"] {
+  margin-top: 68px;
+  margin-bottom: 68px;
+}
+
 /* ===== DOMAIN BLOCK ===== */
 
+/* LEVEL 2b — DOMAIN HEADING */
 .enter-domain {
   color: var(--text) !important;
-  font-size: clamp(15px, 1.35vw, 19px) !important;
+  font-size: clamp(19px, 1.6vw, 23px) !important;
   font-weight: 600 !important;
-  letter-spacing: 0.28em !important;
-  margin-bottom: 8px !important;
+  letter-spacing: 0.16em !important;
+  line-height: 1.4 !important;
+  margin-bottom: 14px !important;
 }
 
 /* ===== CTA BLOCK ===== */
 
 .enter-cta-block {
   text-align: center;
-  padding-top: 24px;
+  margin-top: 88px;
+  padding-top: 40px;
   border-top: 1px solid var(--border);
 }
 
 .enter-enquiry {
   display: inline-block;
-  margin: 28px 0 16px;
+  margin: 32px 0 20px;
   padding: 16px 40px;
   color: var(--text);
   font-size: clamp(11px, 0.95vw, 14px);
   font-weight: 500;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.24em;
   text-decoration: none;
   border: 1px solid var(--border);
   opacity: 0;
@@ -186,6 +209,7 @@
   color: #ffffff;
 }
 
+/* LEVEL 4 — METADATA */
 .enter-email {
   color: var(--faint) !important;
   font-size: clamp(11px, 0.95vw, 13px) !important;
@@ -222,8 +246,8 @@
 
   .enter-back {
     padding: 10px 20px;
-    font-size: 9px;
-    letter-spacing: 0.2em;
+    font-size: 10px;
+    letter-spacing: 0.22em;
   }
 
   .enter-hero {
@@ -239,25 +263,46 @@
   }
 
   .enter-block {
+    margin-bottom: 48px;
+  }
+
+  .enter-block[data-block="3"],
+  .enter-block[data-block="6"] {
+    margin-top: 56px;
     margin-bottom: 56px;
   }
 
+  /* Body text — keep readable, not tiny */
   .enter-line {
-    font-size: 13px;
-    line-height: 1.75;
-  }
-
-  .enter-headline {
     font-size: 15px;
-    letter-spacing: 0.18em;
+    line-height: 1.65;
   }
 
+  /* LEVEL 1 — Primary headline */
+  .enter-headline {
+    font-size: 18px;
+    letter-spacing: 0.13em;
+  }
+
+  /* LEVEL 2a — QUETTA × LITH */
   .enter-accent {
-    font-size: 14px;
+    font-size: 16px;
+    letter-spacing: 0.11em;
+  }
+
+  /* LEVEL 2b — Domain */
+  .enter-domain {
+    font-size: 18px !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  .enter-cta-block {
+    margin-top: 64px;
+    padding-top: 32px;
   }
 
   .enter-enquiry {
-    padding: 12px 28px;
+    padding: 14px 32px;
     font-size: 11px;
     letter-spacing: 0.22em;
   }
@@ -272,22 +317,52 @@
     width: 94vw;
   }
 
-  .enter-line {
-    font-size: 12px;
+  .enter-content {
+    padding: 2vh 5vw 9vh;
   }
 
-  .enter-headline {
+  /* Body text — must remain readable on small screens */
+  .enter-line {
     font-size: 14px;
-    letter-spacing: 0.14em;
+    line-height: 1.65;
+  }
+
+  /* LEVEL 1 — Primary headline */
+  .enter-headline {
+    font-size: 17px;
+    letter-spacing: 0.11em;
+  }
+
+  /* LEVEL 2a */
+  .enter-accent {
+    font-size: 15px;
+    letter-spacing: 0.1em;
+  }
+
+  /* LEVEL 2b */
+  .enter-domain {
+    font-size: 16px !important;
+    letter-spacing: 0.12em !important;
   }
 
   .enter-block {
-    margin-bottom: 44px;
+    margin-bottom: 40px;
+  }
+
+  .enter-block[data-block="3"],
+  .enter-block[data-block="6"] {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  .enter-cta-block {
+    margin-top: 56px;
+    padding-top: 28px;
   }
 
   .enter-enquiry {
-    padding: 10px 22px;
+    padding: 12px 26px;
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
   }
 }
