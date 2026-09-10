@@ -4,29 +4,35 @@
   overflow-x: hidden;
 }
 
-/* ===== FIXED TOP BAR ===== */
+/* ===== SHELL (shared wrapper: header + content) ===== */
+
+.enter-shell {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 32px;
+}
+
+/* ===== STICKY HEADER ([ BACK ] + LOGO, one row) ===== */
 
 .enter-header {
-  position: fixed;
+  grid-column: 1 / -1;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 30;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 32px;
-  padding: 24px 6vw;
+  padding: 24px 0;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
 .enter-back {
-  position: absolute;
-  left: 6vw;
-  top: 50%;
-  transform: translateY(-50%);
   display: inline-block;
+  flex-shrink: 0;
   padding: 12px 28px;
   color: var(--muted);
   font-size: clamp(10px, 0.85vw, 12px);
@@ -43,7 +49,7 @@
   color: var(--text);
 }
 
-/* ===== LOGO (inside header) ===== */
+/* ===== LOGO ===== */
 
 .enter-logo {
   position: relative;
@@ -76,12 +82,11 @@
   user-select: none;
 }
 
-/* ===== CONTENT ===== */
+/* ===== CONTENT (second grid column → starts under logo) ===== */
 
 .enter-content {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 140px 6vw 12vh;
+  grid-column: 2;
+  padding: 60px 0 12vh;
 }
 
 .enter-block {
@@ -173,7 +178,6 @@
 
 /* ===== DOMAIN BLOCK ===== */
 
-/* LEVEL 2b — DOMAIN HEADING */
 .enter-domain {
   color: var(--text) !important;
   font-size: clamp(19px, 1.6vw, 23px) !important;
@@ -214,7 +218,6 @@
   color: #ffffff;
 }
 
-/* LEVEL 4 — METADATA */
 .enter-email {
   color: var(--faint) !important;
   font-size: clamp(11px, 0.95vw, 13px) !important;
@@ -244,8 +247,13 @@
 /* ===== RESPONSIVE ===== */
 
 @media screen and (max-width: 768px) {
+  .enter-shell {
+    display: block;
+    padding: 0 5vw;
+  }
+
   .enter-header {
-    padding: 16px 5vw;
+    padding: 16px 0;
     gap: 16px;
   }
 
@@ -260,7 +268,7 @@
   }
 
   .enter-content {
-    padding: 110px 5vw 10vh;
+    padding: 40px 0 10vh;
   }
 
   .enter-block {
@@ -306,8 +314,13 @@
 }
 
 @media screen and (max-width: 480px) {
+  .enter-shell {
+    display: block;
+    padding: 0 4vw;
+  }
+
   .enter-header {
-    padding: 14px 4vw;
+    padding: 14px 0;
     gap: 12px;
   }
 
@@ -322,7 +335,7 @@
   }
 
   .enter-content {
-    padding: 96px 5vw 9vh;
+    padding: 32px 0 9vh;
   }
 
   .enter-line {
