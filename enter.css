@@ -40,9 +40,22 @@
 
 .enter-logo {
   position: relative;
-  width: clamp(280px, 29vw, 450px);
+  width: clamp(560px, 58vw, 900px);
   aspect-ratio: 1298 / 419;
   margin: 0 auto;
+}
+
+.enter-graphic {
+  position: absolute;
+  inset: 0;
+  transform: scale(0.5);
+  transform-origin: left center;
+}
+
+.enter-wordmark-piece {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
 }
 
 .enter-piece {
@@ -218,7 +231,7 @@
   }
 
   .enter-logo {
-    width: min(80vw, 340px);
+    width: min(92vw, 680px);
   }
 
   .enter-content {
@@ -256,7 +269,7 @@
   }
 
   .enter-logo {
-    width: 72vw;
+    width: 94vw;
   }
 
   .enter-line {
