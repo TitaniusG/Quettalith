@@ -4,27 +4,22 @@
   overflow-x: hidden;
 }
 
-/* ===== SHELL (grid: BACK column + content column) ===== */
+/* ===== SHELL (shared wrapper: header + content) ===== */
 
 .enter-shell {
   max-width: 880px;
   margin: 0 auto;
   padding: 0 6vw;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 32px;
 }
 
 /* ===== STICKY HEADER ([ BACK ] + LOGO, one row) ===== */
 
 .enter-header {
-  grid-column: 1 / -1;
   position: sticky;
   top: 0;
   z-index: 30;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 32px;
   padding: 24px 0;
   background: var(--bg);
@@ -86,7 +81,6 @@
 /* ===== CONTENT ===== */
 
 .enter-content {
-  grid-column: 2;
   padding: 60px 0 12vh;
 }
 
@@ -246,7 +240,6 @@
 
 @media screen and (max-width: 768px) {
   .enter-shell {
-    display: block;
     padding: 0 5vw;
   }
 
@@ -301,4 +294,78 @@
 
   .enter-cta-block {
     margin-top: 64px;
-    padding-top:
+    padding-top: 32px;
+  }
+
+  .enter-enquiry {
+    padding: 14px 32px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .enter-shell {
+    padding: 0 4vw;
+  }
+
+  .enter-header {
+    padding: 14px 0;
+    gap: 12px;
+  }
+
+  .enter-back {
+    padding: 8px 14px;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+  }
+
+  .enter-logo {
+    width: clamp(120px, 46vw, 200px);
+  }
+
+  .enter-content {
+    padding: 32px 0 9vh;
+  }
+
+  .enter-line {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .enter-headline {
+    font-size: 17px;
+    letter-spacing: 0.11em;
+  }
+
+  .enter-accent {
+    font-size: 15px;
+    letter-spacing: 0.1em;
+  }
+
+  .enter-domain {
+    font-size: 16px !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  .enter-block {
+    margin-bottom: 40px;
+  }
+
+  .enter-block[data-block="3"],
+  .enter-block[data-block="6"] {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  .enter-cta-block {
+    margin-top: 56px;
+    padding-top: 28px;
+  }
+
+  .enter-enquiry {
+    padding: 12px 26px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+}
