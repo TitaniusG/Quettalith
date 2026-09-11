@@ -81,7 +81,7 @@
 .enter-content {
   max-width: 880px;
   margin: 0 auto;
-  padding: 140px 6vw 12vh;
+  padding: 200px 6vw 12vh;
 }
 
 .enter-block {
@@ -258,7 +258,7 @@
   }
 
   .enter-content {
-    padding: 110px 6vw 10vh;
+    padding: 140px 6vw 10vh;
   }
 
   .enter-block {
@@ -323,7 +323,7 @@
   }
 
   .enter-content {
-    padding: 96px 5vw 9vh;
+    padding: 120px 5vw 9vh;
   }
 
   .enter-line {
