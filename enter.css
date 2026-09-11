@@ -4,15 +4,7 @@
   overflow-x: hidden;
 }
 
-/* ===== SHELL ===== */
-
-.enter-shell {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 0 6vw;
-}
-
-/* ===== FIXED HEADER — BACK + LOGO, one row, left-aligned ===== */
+/* ===== FIXED HEADER — BACK + LOGO, one row ===== */
 
 .enter-header {
   position: fixed;
