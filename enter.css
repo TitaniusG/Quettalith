@@ -1,11 +1,10 @@
 /* ===== ENTER PAGE ===== */
 
 .enter-page {
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
 }
 
-/* ===== SHELL (shared wrapper: header + content) ===== */
+/* ===== SHELL ===== */
 
 .enter-shell {
   max-width: 880px;
@@ -13,7 +12,7 @@
   padding: 0 6vw;
 }
 
-/* ===== FIXED HEADER ([ BACK ] + LOGO, logo aligned to main-page text) ===== */
+/* ===== FIXED HEADER — BACK + LOGO, one row, left-aligned ===== */
 
 .enter-header {
   position: fixed;
@@ -25,17 +24,13 @@
   align-items: center;
   gap: 32px;
   padding: 24px 8vw;
-  padding-left: 37.3vw;   /* ← logo začína na osi textu "THE MONOLITH OF 10³⁰" */
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
 .enter-back {
-  position: absolute;
-  left: 8vw;
-  top: 50%;
-  transform: translateY(-50%);
   display: inline-block;
+  flex-shrink: 0;
   padding: 12px 28px;
   color: var(--muted);
   font-size: clamp(10px, 0.85vw, 12px);
@@ -85,14 +80,12 @@
   user-select: none;
 }
 
-/* ===== CONTENT — aligned to same axis as logo ===== */
+/* ===== CONTENT ===== */
 
 .enter-content {
-  padding: 120px 8vw 12vh;
-  padding-left: 37.3vw;   /* ← obsah začína na tej istej osi ako logo */
   max-width: 880px;
-  margin: 0 0 0 auto;
-  text-align: left;
+  margin: 0 auto;
+  padding: 140px 6vw 12vh;
 }
 
 .enter-block {
@@ -193,7 +186,7 @@
 /* ===== CTA BLOCK ===== */
 
 .enter-cta-block {
-  text-align: left;
+  text-align: center;
   margin-top: 88px;
   padding-top: 40px;
   border-top: 1px solid var(--border);
@@ -231,7 +224,7 @@
 
 .enter-footer {
   text-align: center;
-  padding: 0 8vw 5vh;
+  padding: 0 6vw 5vh;
   color: var(--faint);
   font-size: 8px;
   font-weight: 500;
@@ -248,18 +241,6 @@
 }
 
 /* ===== RESPONSIVE ===== */
-
-@media screen and (max-width: 900px) {
-  /* Na užších obrazovkách padding-left 37.3vw nedáva zmysel → zruš ho */
-  .enter-header,
-  .enter-content {
-    padding-left: 6vw;
-  }
-
-  .enter-back {
-    left: 6vw;
-  }
-}
 
 @media screen and (max-width: 768px) {
   .enter-header {
@@ -278,7 +259,7 @@
   }
 
   .enter-content {
-    padding: 100px 6vw 10vh;
+    padding: 110px 6vw 10vh;
   }
 
   .enter-block {
@@ -340,7 +321,7 @@
   }
 
   .enter-content {
-    padding: 90px 5vw 9vh;
+    padding: 96px 5vw 9vh;
   }
 
   .enter-line {
