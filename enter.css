@@ -1,7 +1,8 @@
 /* ===== ENTER PAGE ===== */
 
 .enter-page {
-  overflow-x: hidden;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 
 /* ===== SHELL (shared wrapper: header + content) ===== */
@@ -12,16 +13,18 @@
   padding: 0 6vw;
 }
 
-/* ===== STICKY HEADER ([ BACK ] + LOGO, one row) ===== */
+/* ===== FIXED HEADER ([ BACK ] + LOGO, one row) ===== */
 
 .enter-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 30;
   display: flex;
   align-items: center;
   gap: 32px;
-  padding: 24px 0;
+  padding: 24px 8vw;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
@@ -52,12 +55,13 @@
   width: clamp(260px, 26vw, 420px);
   aspect-ratio: 1298 / 419;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .enter-graphic {
   position: absolute;
   inset: 0;
-  transform: scale(0.5);
+  transform: scale(0.5) translateX(35%);
   transform-origin: left center;
 }
 
@@ -78,10 +82,13 @@
   user-select: none;
 }
 
-/* ===== CONTENT ===== */
+/* ===== CONTENT (scrolls under fixed header) ===== */
 
 .enter-content {
-  padding: 60px 0 12vh;
+  padding: 120px 8vw 12vh;
+  max-width: 880px;
+  margin: 0 0 0 auto;
+  text-align: left;
 }
 
 .enter-block {
@@ -182,7 +189,7 @@
 /* ===== CTA BLOCK ===== */
 
 .enter-cta-block {
-  text-align: center;
+  text-align: left;
   margin-top: 88px;
   padding-top: 40px;
   border-top: 1px solid var(--border);
@@ -220,7 +227,7 @@
 
 .enter-footer {
   text-align: center;
-  padding: 0 6vw 5vh;
+  padding: 0 8vw 5vh;
   color: var(--faint);
   font-size: 8px;
   font-weight: 500;
@@ -239,12 +246,8 @@
 /* ===== RESPONSIVE ===== */
 
 @media screen and (max-width: 768px) {
-  .enter-shell {
-    padding: 0 5vw;
-  }
-
   .enter-header {
-    padding: 16px 0;
+    padding: 16px 6vw;
     gap: 16px;
   }
 
@@ -259,7 +262,7 @@
   }
 
   .enter-content {
-    padding: 40px 0 10vh;
+    padding: 100px 6vw 10vh;
   }
 
   .enter-block {
@@ -305,12 +308,8 @@
 }
 
 @media screen and (max-width: 480px) {
-  .enter-shell {
-    padding: 0 4vw;
-  }
-
   .enter-header {
-    padding: 14px 0;
+    padding: 14px 5vw;
     gap: 12px;
   }
 
@@ -325,7 +324,7 @@
   }
 
   .enter-content {
-    padding: 32px 0 9vh;
+    padding: 90px 5vw 9vh;
   }
 
   .enter-line {
