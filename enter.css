@@ -16,7 +16,7 @@
   align-items: center;
   gap: 32px;
   padding: 24px 8vw;
-  padding-left: max(8vw, calc((100vw - 880px) / 2 + 6vw));
+  padding-left: calc((100vw - 880px) / 2 + 6vw);
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
@@ -241,7 +241,6 @@
 @media screen and (max-width: 768px) {
   .enter-header {
     padding: 16px 6vw;
-    padding-left: 6vw;
     gap: 16px;
   }
 
@@ -307,7 +306,6 @@
 @media screen and (max-width: 480px) {
   .enter-header {
     padding: 14px 5vw;
-    padding-left: 5vw;
     gap: 12px;
   }
 
