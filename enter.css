@@ -16,13 +16,17 @@
   align-items: center;
   gap: 32px;
   padding: 24px 8vw;
+  padding-left: max(8vw, calc((100vw - 880px) / 2 + 6vw));
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
 .enter-back {
+  position: absolute;
+  left: 8vw;
+  top: 50%;
+  transform: translateY(-50%);
   display: inline-block;
-  flex-shrink: 0;
   padding: 12px 28px;
   color: var(--muted);
   font-size: clamp(10px, 0.85vw, 12px);
@@ -51,7 +55,7 @@
 .enter-graphic {
   position: absolute;
   inset: 0;
-  transform: scale(0.5);
+  transform: scale(0.5) translateX(25%);
   transform-origin: left center;
 }
 
@@ -237,10 +241,14 @@
 @media screen and (max-width: 768px) {
   .enter-header {
     padding: 16px 6vw;
+    padding-left: 6vw;
     gap: 16px;
   }
 
   .enter-back {
+    position: static;
+    transform: none;
+    left: auto;
     padding: 10px 18px;
     font-size: 9px;
     letter-spacing: 0.2em;
@@ -299,10 +307,14 @@
 @media screen and (max-width: 480px) {
   .enter-header {
     padding: 14px 5vw;
+    padding-left: 5vw;
     gap: 12px;
   }
 
   .enter-back {
+    position: static;
+    transform: none;
+    left: auto;
     padding: 8px 14px;
     font-size: 8px;
     letter-spacing: 0.18em;
