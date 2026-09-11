@@ -4,14 +4,31 @@
   overflow-x: hidden;
 }
 
-/* ===== BACK LINK (fixed, absolute) ===== */
+/* ===== SHELL (shared wrapper: header + content) ===== */
+
+.enter-shell {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 6vw;
+}
+
+/* ===== STICKY HEADER ([ BACK ] + LOGO, one row) ===== */
+
+.enter-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
 
 .enter-back {
-  position: fixed;
-  top: 24px;
-  left: 6vw;
-  z-index: 40;
   display: inline-block;
+  flex-shrink: 0;
   padding: 12px 28px;
   color: var(--muted);
   font-size: clamp(10px, 0.85vw, 12px);
@@ -26,28 +43,6 @@
   border-color: var(--border-hover);
   box-shadow: 0 0 24px var(--glow);
   color: var(--text);
-}
-
-/* ===== SHELL (shared wrapper: header + content) ===== */
-
-.enter-shell {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 0 6vw;
-}
-
-/* ===== STICKY HEADER (logo, left-aligned) ===== */
-
-.enter-header {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 24px 0;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
 }
 
 /* ===== LOGO ===== */
@@ -99,7 +94,6 @@
 
 /* ===== TYPOGRAPHIC HIERARCHY ===== */
 
-/* LEVEL 3 — BODY TEXT */
 .enter-line {
   margin: 0;
   padding: 0;
@@ -113,7 +107,6 @@
   animation: enter-fade-in 0.8s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
-/* LEVEL 1 — PRIMARY HEADLINES */
 .enter-headline {
   color: var(--text);
   font-size: clamp(19px, 1.7vw, 24px);
@@ -122,7 +115,6 @@
   line-height: 1.4;
 }
 
-/* LEVEL 2a — SECONDARY HEADING: QUETTA × LITH */
 .enter-accent {
   color: var(--text);
   font-size: clamp(17px, 1.4vw, 20px);
@@ -139,7 +131,7 @@
   letter-spacing: 0;
 }
 
-/* ===== STAGGERED REVEAL — UNCHANGED ===== */
+/* ===== STAGGERED REVEAL ===== */
 .enter-block[data-block="1"] .enter-line { animation-delay: 0.2s; }
 .enter-block[data-block="2"] .enter-line:nth-child(1) { animation-delay: 0.5s; }
 .enter-block[data-block="2"] .enter-line:nth-child(2) { animation-delay: 0.65s; }
@@ -247,20 +239,19 @@
 /* ===== RESPONSIVE ===== */
 
 @media screen and (max-width: 768px) {
-  .enter-back {
-    top: 16px;
-    left: 5vw;
-    padding: 10px 18px;
-    font-size: 9px;
-    letter-spacing: 0.2em;
-  }
-
   .enter-shell {
     padding: 0 5vw;
   }
 
   .enter-header {
     padding: 16px 0;
+    gap: 16px;
+  }
+
+  .enter-back {
+    padding: 10px 18px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
   }
 
   .enter-logo {
@@ -314,20 +305,19 @@
 }
 
 @media screen and (max-width: 480px) {
-  .enter-back {
-    top: 14px;
-    left: 4vw;
-    padding: 8px 14px;
-    font-size: 8px;
-    letter-spacing: 0.18em;
-  }
-
   .enter-shell {
     padding: 0 4vw;
   }
 
   .enter-header {
     padding: 14px 0;
+    gap: 12px;
+  }
+
+  .enter-back {
+    padding: 8px 14px;
+    font-size: 8px;
+    letter-spacing: 0.18em;
   }
 
   .enter-logo {
