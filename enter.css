@@ -16,7 +16,6 @@
   align-items: center;
   gap: 32px;
   padding: 24px 8vw;
-  padding-left: calc((100vw - 880px) / 2 + 6vw);
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
@@ -50,6 +49,7 @@
   width: clamp(260px, 26vw, 420px);
   aspect-ratio: 1298 / 419;
   flex-shrink: 0;
+  margin-left: calc((100vw - 880px) / 2 + 6vw - 8vw);
 }
 
 .enter-graphic {
@@ -255,6 +255,7 @@
 
   .enter-logo {
     width: clamp(150px, 42vw, 240px);
+    margin-left: 0;
   }
 
   .enter-content {
@@ -320,6 +321,7 @@
 
   .enter-logo {
     width: clamp(120px, 46vw, 200px);
+    margin-left: 0;
   }
 
   .enter-content {
