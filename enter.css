@@ -4,7 +4,7 @@
   overflow-x: hidden;
 }
 
-/* ===== SHELL (shared wrapper: header + content) ===== */
+/* ===== SHELL (grid: BACK column + content column) ===== */
 
 .enter-shell {
   max-width: 880px;
@@ -24,6 +24,7 @@
   z-index: 30;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 32px;
   padding: 24px 0;
   background: var(--bg);
@@ -82,7 +83,7 @@
   user-select: none;
 }
 
-/* ===== CONTENT (second grid column → starts under logo) ===== */
+/* ===== CONTENT ===== */
 
 .enter-content {
   grid-column: 2;
@@ -99,7 +100,6 @@
 
 /* ===== TYPOGRAPHIC HIERARCHY ===== */
 
-/* LEVEL 3 — BODY TEXT */
 .enter-line {
   margin: 0;
   padding: 0;
@@ -113,7 +113,6 @@
   animation: enter-fade-in 0.8s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
-/* LEVEL 1 — PRIMARY HEADLINES */
 .enter-headline {
   color: var(--text);
   font-size: clamp(19px, 1.7vw, 24px);
@@ -122,7 +121,6 @@
   line-height: 1.4;
 }
 
-/* LEVEL 2a — SECONDARY HEADING: QUETTA × LITH */
 .enter-accent {
   color: var(--text);
   font-size: clamp(17px, 1.4vw, 20px);
@@ -139,7 +137,7 @@
   letter-spacing: 0;
 }
 
-/* ===== STAGGERED REVEAL — UNCHANGED ===== */
+/* ===== STAGGERED REVEAL ===== */
 .enter-block[data-block="1"] .enter-line { animation-delay: 0.2s; }
 .enter-block[data-block="2"] .enter-line:nth-child(1) { animation-delay: 0.5s; }
 .enter-block[data-block="2"] .enter-line:nth-child(2) { animation-delay: 0.65s; }
@@ -303,79 +301,4 @@
 
   .enter-cta-block {
     margin-top: 64px;
-    padding-top: 32px;
-  }
-
-  .enter-enquiry {
-    padding: 14px 32px;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .enter-shell {
-    display: block;
-    padding: 0 4vw;
-  }
-
-  .enter-header {
-    padding: 14px 0;
-    gap: 12px;
-  }
-
-  .enter-back {
-    padding: 8px 14px;
-    font-size: 8px;
-    letter-spacing: 0.18em;
-  }
-
-  .enter-logo {
-    width: clamp(120px, 46vw, 200px);
-  }
-
-  .enter-content {
-    padding: 32px 0 9vh;
-  }
-
-  .enter-line {
-    font-size: 14px;
-    line-height: 1.65;
-  }
-
-  .enter-headline {
-    font-size: 17px;
-    letter-spacing: 0.11em;
-  }
-
-  .enter-accent {
-    font-size: 15px;
-    letter-spacing: 0.1em;
-  }
-
-  .enter-domain {
-    font-size: 16px !important;
-    letter-spacing: 0.12em !important;
-  }
-
-  .enter-block {
-    margin-bottom: 40px;
-  }
-
-  .enter-block[data-block="3"],
-  .enter-block[data-block="6"] {
-    margin-top: 48px;
-    margin-bottom: 48px;
-  }
-
-  .enter-cta-block {
-    margin-top: 56px;
-    padding-top: 28px;
-  }
-
-  .enter-enquiry {
-    padding: 12px 26px;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-  }
-}
+    padding-top:
