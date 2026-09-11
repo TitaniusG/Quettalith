@@ -16,7 +16,7 @@
   align-items: center;
   gap: 32px;
   padding: 24px 8vw;
-  padding-left: calc((100vw - 880px) / 2 + 6vw);
+  padding-left: calc((100vw - 880px) / 2 + 6vw + 116px);
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
