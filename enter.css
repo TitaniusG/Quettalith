@@ -13,7 +13,7 @@
   padding: 0 6vw;
 }
 
-/* ===== FIXED HEADER ([ BACK ] + LOGO, one row) ===== */
+/* ===== FIXED HEADER ([ BACK ] + LOGO, logo aligned to main-page text) ===== */
 
 .enter-header {
   position: fixed;
@@ -25,13 +25,17 @@
   align-items: center;
   gap: 32px;
   padding: 24px 8vw;
+  padding-left: 37.3vw;   /* ← logo začína na osi textu "THE MONOLITH OF 10³⁰" */
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
 .enter-back {
+  position: absolute;
+  left: 8vw;
+  top: 50%;
+  transform: translateY(-50%);
   display: inline-block;
-  flex-shrink: 0;
   padding: 12px 28px;
   color: var(--muted);
   font-size: clamp(10px, 0.85vw, 12px);
@@ -55,13 +59,12 @@
   width: clamp(260px, 26vw, 420px);
   aspect-ratio: 1298 / 419;
   flex-shrink: 0;
-  margin-left: auto;
 }
 
 .enter-graphic {
   position: absolute;
   inset: 0;
-  transform: scale(0.5) translateX(35%);
+  transform: scale(0.5);
   transform-origin: left center;
 }
 
@@ -82,10 +85,11 @@
   user-select: none;
 }
 
-/* ===== CONTENT (scrolls under fixed header) ===== */
+/* ===== CONTENT — aligned to same axis as logo ===== */
 
 .enter-content {
   padding: 120px 8vw 12vh;
+  padding-left: 37.3vw;   /* ← obsah začína na tej istej osi ako logo */
   max-width: 880px;
   margin: 0 0 0 auto;
   text-align: left;
@@ -244,6 +248,18 @@
 }
 
 /* ===== RESPONSIVE ===== */
+
+@media screen and (max-width: 900px) {
+  /* Na užších obrazovkách padding-left 37.3vw nedáva zmysel → zruš ho */
+  .enter-header,
+  .enter-content {
+    padding-left: 6vw;
+  }
+
+  .enter-back {
+    left: 6vw;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .enter-header {
