@@ -84,16 +84,16 @@ body {
 
 .line1 {
   animation:
-    line-emerge 1.35s 3.65s cubic-bezier(.12,.52,.18,1) forwards,
+    line-emerge 1.35s 3.15s cubic-bezier(.12,.52,.18,1) forwards,
     line-breathe 1.8s 12s ease-in-out 1;
 }
 
 .line2 {
-  animation: line-emerge 1.35s 4.10s cubic-bezier(.12,.52,.18,1) forwards;
+  animation: line-emerge 1.35s 3.60s cubic-bezier(.12,.52,.18,1) forwards;
 }
 
 .line3 {
-  animation: line-emerge 1.35s 4.55s cubic-bezier(.12,.52,.18,1) forwards;
+  animation: line-emerge 1.35s 4.05s cubic-bezier(.12,.52,.18,1) forwards;
 }
 
 /* ===== WORDMARK (UNIFIED — NO SPLIT) ===== */
