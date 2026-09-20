@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 :root {
@@ -9,8 +10,8 @@
   --border-hover: rgba(242, 243, 241, 0.5);
   --glow: rgba(242, 243, 241, 0.08);
   /* Pixel-accurate positions from wordmark.png analysis (1298px wide) */
-  --quetta-left: 36.9%;    /* x=479/1298 — left edge of letter Q */
-  --quetta-center: 56.7%;  /* midpoint of QUETTA text */
+  --quetta-left: 36.9%;
+  --quetta-center: 56.7%;
 }
 
 * { box-sizing: border-box; }
@@ -37,8 +38,7 @@ body {
 }
 
 /* ===== HERO ===== */
-/* Positioned so QUETTA's center sits at 50vw (screen center).
-   left = 50vw - 0.567 * width.  With width = 64vw → left = 13.7vw. */
+
 .hero {
   position: absolute;
   left: 13.7vw;
@@ -83,9 +83,19 @@ body {
   clip-path: inset(100% 0 0 0);
 }
 
-.line1 { animation: line-emerge 1.35s 3.65s cubic-bezier(.12,.52,.18,1) forwards, line-breathe 1.8s 12s ease-in-out 1; }
-.line2 { animation: line-emerge 1.35s 4.10s cubic-bezier(.12,.52,.18,1) forwards; }
-.line3 { animation: line-emerge 1.35s 4.55s cubic-bezier(.12,.52,.18,1) forwards; }
+.line1 {
+  animation:
+    line-emerge 1.35s 3.65s cubic-bezier(.12,.52,.18,1) forwards,
+    line-breathe 1.8s 12s ease-in-out 1;
+}
+
+.line2 {
+  animation: line-emerge 1.35s 4.10s cubic-bezier(.12,.52,.18,1) forwards;
+}
+
+.line3 {
+  animation: line-emerge 1.35s 4.55s cubic-bezier(.12,.52,.18,1) forwards;
+}
 
 /* ===== WORDMARK (UNIFIED — NO SPLIT) ===== */
 
@@ -114,7 +124,7 @@ body {
     lith-fade-in 1.0s 11.5s ease-in-out forwards;
 }
 
-/* ===== NONILLION SUBTITLE (centered under QUETTA text) ===== */
+/* ===== NONILLION SUBTITLE ===== */
 
 .nonillion-wrap {
   position: absolute;
@@ -142,7 +152,7 @@ body {
   letter-spacing: 0;
 }
 
-/* ===== FINAL SEQUENCE (left-aligned to Q edge) ===== */
+/* ===== FINAL SEQUENCE ===== */
 
 .final-sequence {
   margin-left: var(--quetta-left);
@@ -195,7 +205,7 @@ body {
   letter-spacing: 0;
 }
 
-/* ===== CTA BUTTON (top-right header nav) ===== */
+/* ===== CTA BUTTON ===== */
 
 .cta-button {
   position: absolute;
@@ -218,8 +228,6 @@ body {
 }
 
 .cta-button:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 0 24px var(--glow), inset 0 0 24px rgba(242, 243, 241, 0.03);
   color: #ffffff;
 }
 
@@ -248,8 +256,8 @@ body {
 
 .label {
   margin-bottom: 7px;
-  color: var(--faint);
-  font-size: 9px;
+  color: #44474d;
+  font-size: 8px;
   font-weight: 500;
   letter-spacing: .25em;
   opacity: 0;
@@ -353,7 +361,7 @@ body {
     text-shadow: none;
   }
   50% {
-    opacity: 0.62;
+    opacity: 0.38;
     text-shadow: 0 0 18px var(--glow);
   }
 }
@@ -440,7 +448,7 @@ body {
   }
 
   .label {
-    font-size: 8px;
+    font-size: 7px;
     letter-spacing: 0.2em;
   }
 
