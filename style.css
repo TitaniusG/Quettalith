@@ -256,8 +256,8 @@ body {
 
 .label {
   margin-bottom: 7px;
-  color: #44474d;
-  font-size: 8px;
+  color: #555961;
+  font-size: 9px;
   font-weight: 500;
   letter-spacing: .25em;
   opacity: 0;
@@ -361,7 +361,7 @@ body {
     text-shadow: none;
   }
   50% {
-    opacity: 0.38;
+    opacity: 0.25;
     text-shadow: 0 0 18px var(--glow);
   }
 }
@@ -448,7 +448,7 @@ body {
   }
 
   .label {
-    font-size: 7px;
+    font-size: 8px;
     letter-spacing: 0.2em;
   }
 
@@ -503,5 +503,10 @@ body {
     animation:
       cta-reveal-center 1.2s 18.0s cubic-bezier(.16,.62,.2,1) forwards,
       cta-pulse 3.6s 20.0s ease-in-out infinite;
+  }
+
+  .label {
+    font-size: 8px;
+    letter-spacing: 0.2em;
   }
 }
