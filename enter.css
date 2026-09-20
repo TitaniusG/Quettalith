@@ -19,6 +19,7 @@
   background: var(--bg);
 }
 
+
 /* ===== BACK ===== */
 
 .enter-back {
@@ -162,6 +163,26 @@
 
   font-size: 0.65em;
   letter-spacing: 0;
+}
+
+
+/* ===== KEY MARKETING EMPHASIS ===== */
+
+/* Quetta is the conceptual anchor of the name. */
+.enter-block[data-block="2"] .enter-line:first-child {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* The future-facing statement gets subtle visual priority. */
+.enter-block[data-block="5"] .enter-line:nth-child(2) {
+  color: var(--text);
+}
+
+/* The actual sales status should be immediately visible. */
+.enter-block[data-block="6"] .enter-line:nth-child(4) {
+  color: var(--text);
+  font-weight: 500;
 }
 
 
