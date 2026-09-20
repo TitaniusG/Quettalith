@@ -324,7 +324,7 @@
   display: inline-block;
 
   margin: 34px 0 20px;
-  padding: 0;
+  padding: 13px 22px;
 
   color: var(--text);
 
@@ -334,7 +334,8 @@
   letter-spacing: 0.24em;
   text-decoration: none;
 
-  border: none;
+  border: 1px solid var(--border);
+  border-radius: 0;
 
   opacity: 0;
   transform: translateY(8px);
@@ -342,13 +343,17 @@
   animation:
     enter-fade-in 0.8s cubic-bezier(.16,.62,.2,1) forwards;
 
+  cursor: pointer;
+
   transition:
     color 0.4s ease,
+    border-color 0.4s ease,
     text-shadow 0.4s ease;
 }
 
 .enter-enquiry:hover {
   color: #ffffff;
+  border-color: var(--border-hover);
   text-shadow: 0 0 18px var(--glow);
 }
 
@@ -458,6 +463,8 @@
   .enter-enquiry {
     margin-top: 32px;
 
+    padding: 12px 20px;
+
     font-size: 11px;
     letter-spacing: 0.22em;
   }
@@ -523,6 +530,8 @@
 
   .enter-enquiry {
     margin-top: 30px;
+
+    padding: 11px 18px;
 
     font-size: 10px;
     letter-spacing: 0.2em;
