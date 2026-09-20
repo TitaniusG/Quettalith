@@ -17,10 +17,8 @@
   <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
 
   <script>
-    if (sessionStorage.getItem('quettalith-seen')) {
+    if (sessionStorage.getItem('quettalith-seen') === '1') {
       document.documentElement.classList.add('skip-animation');
-    } else {
-      sessionStorage.setItem('quettalith-seen', '1');
     }
   </script>
 </head>
@@ -31,6 +29,7 @@
     <section class="hero" aria-label="Quettalith">
 
       <div class="logo" aria-label="QUETTALITH">
+
         <img class="piece monolith" src="monolith.png" alt="">
         <img class="piece divider" src="divider.png" alt="">
         <img class="piece line line1" src="line-1.png" alt="">
@@ -53,6 +52,7 @@
       </div>
 
       <div class="final-sequence">
+
         <div class="tagline tagline-1">
           THE MONOLITH OF 10<sup>30</sup>
         </div>
@@ -64,17 +64,26 @@
         <div class="tagline tagline-3">
           Beyond Yotta.
         </div>
+
       </div>
 
     </section>
 
     <!-- FINAL SEQUENCE -->
 
-    <a class="cta-button" href="enter.html">
+    <a
+      class="cta-button"
+      href="enter.html"
+      onclick="sessionStorage.setItem('quettalith-seen', '1');"
+    >
       [ ENTER QUETTALITH ]
     </a>
 
-    <section class="acquisition" aria-label="Domain acquisition" id="acquisition">
+    <section
+      class="acquisition"
+      aria-label="Domain acquisition"
+      id="acquisition"
+    >
       <div class="domain">
         QUETTALITH.COM
       </div>
