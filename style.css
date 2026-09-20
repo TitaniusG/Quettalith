@@ -8,14 +8,18 @@
   --border: rgba(242, 243, 241, 0.15);
   --border-hover: rgba(242, 243, 241, 0.5);
   --glow: rgba(242, 243, 241, 0.08);
+
   /* Pixel-accurate positions from wordmark.png analysis (1298px wide) */
   --quetta-left: 36.9%;
   --quetta-center: 56.7%;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   min-height: 100%;
   background: var(--bg);
@@ -36,6 +40,7 @@ body {
   background: var(--bg);
 }
 
+
 /* ===== HERO ===== */
 
 .hero {
@@ -46,6 +51,7 @@ body {
   transform: translateY(-50%);
   animation: hero-settle 22s cubic-bezier(.2,.7,.2,1) both;
 }
+
 
 /* ===== LOGO ===== */
 
@@ -68,14 +74,16 @@ body {
 
 .monolith {
   clip-path: inset(100% 0 0 0);
-  animation: monolith-emerge 2.4s 1.35s cubic-bezier(.12,.52,.18,1) forwards;
+  animation:
+    monolith-emerge 2.4s 1.35s cubic-bezier(.12,.52,.18,1) forwards;
 }
 
 .divider {
   transform-origin: 50% 100%;
   transform: scaleY(0);
   opacity: 0;
-  animation: divider-emerge 1.1s .95s cubic-bezier(.12,.52,.18,1) forwards;
+  animation:
+    divider-emerge 1.1s .95s cubic-bezier(.12,.52,.18,1) forwards;
 }
 
 .line {
@@ -89,14 +97,17 @@ body {
 }
 
 .line2 {
-  animation: line-emerge 1.35s 3.60s cubic-bezier(.12,.52,.18,1) forwards;
+  animation:
+    line-emerge 1.35s 3.60s cubic-bezier(.12,.52,.18,1) forwards;
 }
 
 .line3 {
-  animation: line-emerge 1.35s 4.05s cubic-bezier(.12,.52,.18,1) forwards;
+  animation:
+    line-emerge 1.35s 4.05s cubic-bezier(.12,.52,.18,1) forwards;
 }
 
-/* ===== WORDMARK (UNIFIED — NO SPLIT) ===== */
+
+/* ===== WORDMARK ===== */
 
 .wordmark-unified {
   position: absolute;
@@ -109,19 +120,35 @@ body {
 }
 
 .wordmark-quetta {
-  clip-path: polygon(0 0, 77% 0, 77% 100%, 0 100%);
+  clip-path: polygon(
+    0 0,
+    77% 0,
+    77% 100%,
+    0 100%
+  );
+
   opacity: 0;
-  animation: wordmark-emerge 1.25s 6.0s cubic-bezier(.16,.62,.2,1) forwards;
+
+  animation:
+    wordmark-emerge 1.25s 6.0s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
 .wordmark-lith {
-  clip-path: polygon(77% 0, 100% 0, 100% 100%, 77% 100%);
+  clip-path: polygon(
+    77% 0,
+    100% 0,
+    100% 100%,
+    77% 100%
+  );
+
   opacity: 0;
+
   animation:
     wordmark-emerge 1.25s 6.0s cubic-bezier(.16,.62,.2,1) forwards,
     lith-fade-out 1.0s 8.5s ease-in-out forwards,
     lith-fade-in 1.0s 11.5s ease-in-out forwards;
 }
+
 
 /* ===== NONILLION SUBTITLE ===== */
 
@@ -139,6 +166,7 @@ body {
   color: var(--muted);
   opacity: 0;
   white-space: nowrap;
+
   animation:
     nonillion-reveal 1.0s 9.7s cubic-bezier(.16,.62,.2,1) forwards,
     nonillion-fade 1.0s 11.5s ease-in-out forwards;
@@ -150,6 +178,7 @@ body {
   font-size: 0.7em;
   letter-spacing: 0;
 }
+
 
 /* ===== FINAL SEQUENCE ===== */
 
@@ -178,7 +207,9 @@ body {
   font-size: clamp(11px, 1.1vw, 15px);
   font-weight: 600;
   letter-spacing: 0.32em;
-  animation: text-reveal 1.2s 13.5s cubic-bezier(.16,.62,.2,1) forwards;
+
+  animation:
+    text-reveal 1.2s 13.5s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
 .tagline-2 {
@@ -186,7 +217,9 @@ body {
   font-size: clamp(12px, 1.15vw, 16px);
   font-weight: 400;
   letter-spacing: 0.06em;
-  animation: text-reveal 1.2s 15.0s cubic-bezier(.16,.62,.2,1) forwards;
+
+  animation:
+    text-reveal 1.2s 15.0s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
 .tagline-3 {
@@ -194,7 +227,9 @@ body {
   font-size: clamp(13px, 1.3vw, 18px);
   font-weight: 500;
   letter-spacing: 0.18em;
-  animation: text-reveal 1.2s 16.5s cubic-bezier(.16,.62,.2,1) forwards;
+
+  animation:
+    text-reveal 1.2s 16.5s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
 .tagline sup {
@@ -204,25 +239,35 @@ body {
   letter-spacing: 0;
 }
 
-/* ===== CTA BUTTON ===== */
+
+/* ===== CTA ===== */
 
 .cta-button {
   position: absolute;
   top: 7.5vh;
   right: 6vw;
   padding: 14px 32px;
+
   color: var(--text);
   font-size: clamp(10px, 0.85vw, 12px);
   font-weight: 500;
   letter-spacing: 0.3em;
   text-decoration: none;
+
   border: none;
+
   opacity: 0;
   transform: translateY(4px);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    color 0.4s ease;
+
   animation:
     cta-reveal 1.2s 18.0s cubic-bezier(.16,.62,.2,1) forwards,
     cta-pulse 3.6s 20.0s ease-in-out infinite;
+
   z-index: 20;
 }
 
@@ -233,6 +278,7 @@ body {
 .cta-button:active {
   opacity: 0.85;
 }
+
 
 /* ===== ACQUISITION ===== */
 
@@ -245,23 +291,32 @@ body {
 
 .domain {
   margin-bottom: 18px;
+
   color: var(--text);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: .28em;
+
   opacity: 0;
-  animation: text-reveal 1.2s 18.0s cubic-bezier(.16,.62,.2,1) forwards;
+
+  animation:
+    text-reveal 1.2s 18.0s cubic-bezier(.16,.62,.2,1) forwards;
 }
 
 .label {
   margin-bottom: 7px;
+
   color: #8d9199;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: .22em;
+
   opacity: 0;
-  animation: text-reveal 1.2s 18.8s cubic-bezier(.16,.62,.2,1) forwards;
+
+  animation:
+    text-reveal 1.2s 18.8s cubic-bezier(.16,.62,.2,1) forwards;
 }
+
 
 /* ===== FOOTER ===== */
 
@@ -269,13 +324,18 @@ body {
   position: absolute;
   left: 3vw;
   bottom: 2.5vh;
+
   color: var(--faint);
   font-size: 8px;
   font-weight: 500;
   letter-spacing: .22em;
+
   opacity: 0;
-  animation: soft-reveal 1.2s 18.0s both cubic-bezier(.16,.62,.2,1);
+
+  animation:
+    soft-reveal 1.2s 18.0s both cubic-bezier(.16,.62,.2,1);
 }
+
 
 /* ===== SCREEN READER ONLY ===== */
 
@@ -290,6 +350,7 @@ body {
   white-space: nowrap;
   border: 0;
 }
+
 
 /* ===== KEYFRAMES ===== */
 
@@ -330,7 +391,8 @@ body {
 }
 
 @keyframes line-breathe {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
 
@@ -432,7 +494,8 @@ body {
 }
 
 @keyframes cta-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     text-shadow: none;
   }
@@ -466,7 +529,8 @@ body {
 }
 
 @keyframes acquisition-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
 
@@ -475,9 +539,81 @@ body {
   }
 }
 
+
+/* ===== RETURN VISIT — SKIP INTRO ANIMATION ===== */
+
+.skip-animation .hero {
+  animation: none;
+}
+
+.skip-animation .monolith {
+  animation: none;
+  clip-path: inset(0 0 0 0);
+}
+
+.skip-animation .divider {
+  animation: none;
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.skip-animation .line {
+  animation: none;
+  clip-path: inset(0 0 0 0);
+}
+
+.skip-animation .wordmark-quetta {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skip-animation .wordmark-lith {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skip-animation .nonillion-text {
+  animation: none;
+  opacity: 0;
+}
+
+.skip-animation .tagline {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skip-animation .cta-button {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skip-animation .domain {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skip-animation .label {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skip-animation .footer {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* ===== RESPONSIVE ===== */
 
 @media screen and (max-width: 768px) {
+
   .hero {
     left: 50vw;
     width: 92vw;
@@ -526,6 +662,7 @@ body {
     padding: 10px 20px;
     font-size: 9px;
     letter-spacing: 0.2em;
+
     animation:
       cta-reveal 1.2s 18.0s cubic-bezier(.16,.62,.2,1) forwards,
       cta-pulse 3.6s 20.0s ease-in-out infinite;
@@ -553,7 +690,9 @@ body {
   }
 }
 
+
 @media screen and (max-width: 480px) {
+
   .hero {
     width: 94vw;
   }
@@ -594,6 +733,7 @@ body {
     padding: 8px 16px;
     font-size: 8px;
     letter-spacing: 0.16em;
+
     animation:
       cta-reveal-center 1.2s 18.0s cubic-bezier(.16,.62,.2,1) forwards,
       cta-pulse 3.6s 20.0s ease-in-out infinite;
