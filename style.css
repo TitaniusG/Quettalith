@@ -140,7 +140,7 @@ body {
   opacity: 0;
   white-space: nowrap;
   animation:
-    nonillion-reveal 1.0s 8.5s cubic-bezier(.16,.62,.2,1) forwards,
+    nonillion-reveal 1.0s 9.7s cubic-bezier(.16,.62,.2,1) forwards,
     nonillion-fade 1.0s 11.5s ease-in-out forwards;
 }
 
