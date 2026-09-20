@@ -255,10 +255,10 @@ body {
 
 .label {
   margin-bottom: 7px;
-  color: #6b7078;
-  font-size: 10px;
+  color: #8d9199;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: .25em;
+  letter-spacing: .22em;
   opacity: 0;
   animation: text-reveal 1.2s 18.8s cubic-bezier(.16,.62,.2,1) forwards;
 }
@@ -294,64 +294,141 @@ body {
 /* ===== KEYFRAMES ===== */
 
 @keyframes divider-emerge {
-  from { transform: scaleY(0); opacity: 0; }
-  30% { opacity: .35; }
-  to { transform: scaleY(1); opacity: 1; }
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: .35;
+  }
+
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
 }
 
 @keyframes monolith-emerge {
-  0% { clip-path: inset(100% 0 0 0); }
-  100% { clip-path: inset(0 0 0 0); }
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 @keyframes line-emerge {
-  0% { clip-path: inset(100% 0 0 0); }
-  100% { clip-path: inset(0 0 0 0); }
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 @keyframes line-breathe {
-  0%, 100% { opacity: 1; }
-  50% { opacity: .94; }
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .94;
+  }
 }
 
 @keyframes wordmark-emerge {
-  from { opacity: 0; transform: translateY(2px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes lith-fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes lith-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes nonillion-reveal {
-  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 @keyframes nonillion-fade {
-  from { opacity: 1; transform: translateX(-50%) translateY(0); }
-  to { opacity: 0; transform: translateX(-50%) translateY(0); }
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 @keyframes text-reveal {
-  from { opacity: 0; transform: translateY(2px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes cta-reveal {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes cta-reveal-center {
-  from { opacity: 0; transform: translateX(50%) translateY(4px); }
-  to { opacity: 1; transform: translateX(50%) translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateX(50%) translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(50%) translateY(0);
+  }
 }
 
 @keyframes cta-pulse {
@@ -359,6 +436,7 @@ body {
     opacity: 1;
     text-shadow: none;
   }
+
   50% {
     opacity: 0.25;
     text-shadow: 0 0 18px var(--glow);
@@ -366,18 +444,35 @@ body {
 }
 
 @keyframes soft-reveal {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes hero-settle {
-  from { opacity: .99; }
-  to { opacity: 1; }
+  from {
+    opacity: .99;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes acquisition-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
 }
 
 /* ===== RESPONSIVE ===== */
@@ -447,8 +542,8 @@ body {
   }
 
   .label {
-    font-size: 8px;
-    letter-spacing: 0.2em;
+    font-size: 9px;
+    letter-spacing: 0.18em;
   }
 
   .footer {
@@ -505,7 +600,7 @@ body {
   }
 
   .label {
-    font-size: 8px;
-    letter-spacing: 0.2em;
+    font-size: 9px;
+    letter-spacing: 0.18em;
   }
 }
