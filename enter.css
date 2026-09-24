@@ -61,7 +61,7 @@
   position: absolute;
 
   left: max(
-    6vw,
+    calc(6vw + 90px),
     calc((100vw - 880px) / 2 + 6vw)
   );
 
@@ -501,14 +501,15 @@
   }
 
   .enter-logo {
-    left: 6vw;
+    left: max(
+      26vw,
+      calc(6vw + 90px)
+    );
 
     width: clamp(150px, 42vw, 240px);
   }
 
   .enter-content {
-    width: auto;
-
     padding:
       178px
       6vw
@@ -585,14 +586,15 @@
   }
 
   .enter-logo {
-    left: 5vw;
+    left: max(
+      24vw,
+      calc(5vw + 70px)
+    );
 
     width: clamp(120px, 46vw, 200px);
   }
 
   .enter-content {
-    width: auto;
-
     padding:
       156px
       5vw
