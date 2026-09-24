@@ -9,6 +9,10 @@
   <meta name="description" content="Quettalith.com — A distinctive coined name inspired by Quetta (10³⁰), created for technology, AI, computing, energy and what comes next. Available for acquisition.">
   <link rel="canonical" href="https://quettalith.com/enter">
 
+  <link rel="icon" href="favicon-exact.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-exact-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-exact-48.png">
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="enter.css">
 
@@ -16,13 +20,13 @@
   <meta property="og:url" content="https://quettalith.com/enter">
   <meta property="og:title" content="Quettalith.com — A Distinctive .com Domain">
   <meta property="og:description" content="A distinctive coined name inspired by Quetta (10³⁰), created for technology, AI, computing, energy and what comes next. Available for acquisition.">
-  <meta property="og:image" content="https://quettalith.com/og-quettalith.png">
+  <meta property="og:image" content="https://quettalith.com/og-image.png">
   <meta property="og:site_name" content="Quettalith">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Quettalith.com — A Distinctive .com Domain">
   <meta name="twitter:description" content="A distinctive coined name inspired by Quetta (10³⁰), created for technology, AI, computing, energy and what comes next. Available for acquisition.">
-  <meta name="twitter:image" content="https://quettalith.com/og-quettalith.png">
+  <meta name="twitter:image" content="https://quettalith.com/og-image.png">
 
   <script type="application/ld+json">
   {
@@ -102,9 +106,7 @@
             MAKE AN ENQUIRY →
           </a>
 
-          <p class="enter-line enter-email" id="email-display">
-            quettalith [at] atomicmail.io
-          </p>
+          <p class="enter-line enter-email" id="email-display"></p>
 
           <a
             class="enter-x"
@@ -134,8 +136,7 @@
       const email = user + "@" + domain;
 
       button.href = "mailto:" + email;
-
-      emailDisplay.textContent = user + " [at] " + domain;
+      emailDisplay.textContent = email;
     })();
   </script>
 </body>
