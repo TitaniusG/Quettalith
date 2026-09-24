@@ -108,14 +108,14 @@
 /* ===== CONTENT ===== */
 
 .enter-content {
-  width: min(880px, calc(100% - 12vw));
+  width: 100%;
   max-width: 880px;
 
   margin: 0 auto;
 
   padding:
     220px
-    0
+    6vw
     12vh;
 
   box-sizing: border-box;
@@ -502,11 +502,16 @@
     letter-spacing: 0.2em;
   }
 
+  /*
+   * One continuous horizontal axis.
+   *
+   * At 768px:  ~32vw
+   * At 480px:  ~30vw
+   *
+   * No breakpoint jump.
+   */
   .enter-logo {
-    left: max(
-      6vw,
-      calc((100vw - 880px) / 2 + 6vw)
-    );
+    left: calc(35.47vw - 26px);
 
     width: clamp(150px, 42vw, 240px);
   }
@@ -515,10 +520,15 @@
     width: calc(100% - 12vw);
     max-width: 880px;
 
+    margin-left: calc(35.47vw - 26px);
+    margin-right: 0;
+
     padding:
       178px
       0
       10vh;
+
+    box-sizing: border-box;
   }
 
   .enter-block {
@@ -590,11 +600,12 @@
     letter-spacing: 0.18em;
   }
 
+  /*
+   * Same continuous axis as above.
+   * No second left-position breakpoint.
+   */
   .enter-logo {
-    left: max(
-      5vw,
-      calc((100vw - 880px) / 2 + 5vw)
-    );
+    left: calc(35.47vw - 26px);
 
     width: clamp(120px, 46vw, 200px);
   }
@@ -603,10 +614,15 @@
     width: calc(100% - 10vw);
     max-width: 880px;
 
+    margin-left: calc(35.47vw - 26px);
+    margin-right: 0;
+
     padding:
       156px
       0
       9vh;
+
+    box-sizing: border-box;
   }
 
   .enter-line {
