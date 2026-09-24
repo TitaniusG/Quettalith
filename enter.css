@@ -61,7 +61,7 @@
   position: absolute;
 
   left: max(
-    calc(6vw + 90px),
+    6vw,
     calc((100vw - 880px) / 2 + 6vw)
   );
 
@@ -108,8 +108,8 @@
 /* ===== CONTENT ===== */
 
 .enter-content {
-  width: 100%;
-  max-width: 880px;
+  width: min(880px, 100%);
+  box-sizing: border-box;
 
   margin: 0 auto;
 
@@ -502,14 +502,16 @@
 
   .enter-logo {
     left: max(
-      26vw,
-      calc(6vw + 90px)
+      24vw,
+      calc((100vw - 880px) / 2 + 6vw)
     );
 
     width: clamp(150px, 42vw, 240px);
   }
 
   .enter-content {
+    width: min(880px, 100%);
+
     padding:
       178px
       6vw
@@ -587,14 +589,16 @@
 
   .enter-logo {
     left: max(
-      24vw,
-      calc(5vw + 70px)
+      22vw,
+      calc((100vw - 880px) / 2 + 5vw)
     );
 
     width: clamp(120px, 46vw, 200px);
   }
 
   .enter-content {
+    width: min(880px, 100%);
+
     padding:
       156px
       5vw
