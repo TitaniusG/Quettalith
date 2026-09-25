@@ -1,3 +1,4 @@
+
 /* =========================================================
    QUETTALITH — ENTER PAGE
    ========================================================= */
@@ -425,10 +426,6 @@
   animation-delay: 1.55s;
 }
 
-.enter-block[data-block="3"] .enter-line:nth-child(4) {
-  animation-delay: 1.7s;
-}
-
 
 /* BLOCK 4 */
 
@@ -468,6 +465,10 @@
 
 .enter-block[data-block="6"] .enter-line:nth-child(4) {
   animation-delay: 3.65s;
+}
+
+.enter-block[data-block="6"] .enter-line:nth-child(5) {
+  animation-delay: 3.8s;
 }
 
 
