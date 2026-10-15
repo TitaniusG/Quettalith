@@ -1,4 +1,3 @@
-
 /* =========================================================
    QUETTALITH — ENTER PAGE
    ========================================================= */
@@ -118,6 +117,7 @@
     6vw
     12vh;
 }
+
 
 .enter-block {
   margin-bottom: 64px;
@@ -335,6 +335,71 @@
   text-decoration: none;
 
   text-shadow: 0 0 14px var(--glow);
+}
+
+
+/* ===== EXPLORE ===== */
+
+.enter-explore {
+  margin-top: 110px;
+
+  text-align: center;
+}
+
+.enter-explore p {
+  margin: 0 0 30px;
+
+  color: var(--text);
+
+  font-size: clamp(15px, 1.15vw, 18px);
+  font-weight: 400;
+
+  line-height: 1.5;
+  letter-spacing: 0.045em;
+}
+
+.enter-explore-link {
+  display: inline-block;
+
+  color: var(--text);
+
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 500;
+
+  line-height: 1.5;
+  letter-spacing: 0.28em;
+
+  text-decoration: none;
+
+  animation:
+    enter-explore-pulse
+    3.2s
+    ease-in-out
+    infinite;
+
+  transition:
+    color 0.4s ease,
+    text-shadow 0.4s ease;
+}
+
+.enter-explore-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 18px var(--glow);
+
+  animation-play-state: paused;
+}
+
+@keyframes enter-explore-pulse {
+
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
 }
 
 
@@ -562,6 +627,20 @@
     font-size: 10px;
   }
 
+  .enter-explore {
+    margin-top: 88px;
+  }
+
+  .enter-explore p {
+    font-size: 14px;
+    margin-bottom: 26px;
+  }
+
+  .enter-explore-link {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+  }
+
 }
 
 
@@ -642,6 +721,20 @@
     margin-top: 24px;
 
     font-size: 9px;
+  }
+
+  .enter-explore {
+    margin-top: 72px;
+  }
+
+  .enter-explore p {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .enter-explore-link {
+    font-size: 10px;
+    letter-spacing: 0.2em;
   }
 
   .enter-footer {

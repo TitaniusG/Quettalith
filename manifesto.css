@@ -1,0 +1,548 @@
+/* =========================================================
+   QUETTALITH — MANIFESTO PAGE
+   Same visual language as ENTER, without modifying ENTER.
+   ========================================================= */
+
+
+/* ===== PAGE ===== */
+
+.manifesto-page {
+  overflow-x: hidden;
+}
+
+
+/* ===== FIXED HEADER ===== */
+
+.manifesto-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+
+  height: 145px;
+
+  background: var(--bg);
+}
+
+
+/* ===== BACK / MAIN ===== */
+
+.manifesto-back,
+.manifesto-main {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: inline-block;
+
+  color: var(--muted);
+
+  font-size: clamp(10px, 0.85vw, 12px);
+  font-weight: 500;
+
+  letter-spacing: 0.28em;
+  text-decoration: none;
+
+  transition:
+    color 0.4s ease,
+    text-shadow 0.4s ease;
+}
+
+.manifesto-back {
+  left: 6vw;
+}
+
+.manifesto-main {
+  right: 6vw;
+}
+
+.manifesto-back:hover,
+.manifesto-main:hover {
+  color: var(--text);
+  text-shadow: 0 0 18px var(--glow);
+}
+
+
+/* ===== LOGO ===== */
+
+.manifesto-logo {
+  position: absolute;
+
+  left: max(
+    6vw,
+    calc((100vw - 880px) / 2 + 6vw)
+  );
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: clamp(250px, 24vw, 380px);
+
+  aspect-ratio: 1298 / 419;
+
+  pointer-events: none;
+}
+
+.manifesto-graphic {
+  position: absolute;
+  inset: 0;
+
+  transform: scale(0.5);
+  transform-origin: left center;
+}
+
+.manifesto-piece {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.manifesto-wordmark-piece {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+
+/* ===== CONTENT ===== */
+
+.manifesto-content {
+  width: 100%;
+  max-width: 880px;
+
+  margin: 0 auto;
+
+  padding:
+    220px
+    6vw
+    14vh;
+}
+
+
+/* ===== BLOCKS ===== */
+
+.manifesto-block {
+  margin-bottom: 92px;
+}
+
+.manifesto-intro {
+  margin-bottom: 116px;
+}
+
+.manifesto-bridge {
+  margin-top: 126px;
+  margin-bottom: 126px;
+}
+
+.manifesto-branch {
+  margin-top: 116px;
+  margin-bottom: 116px;
+}
+
+.manifesto-sub {
+  margin-left: 7%;
+  margin-bottom: 86px;
+}
+
+.manifesto-emphasis {
+  margin-top: 108px;
+  margin-bottom: 108px;
+}
+
+.manifesto-closing {
+  margin-top: 132px;
+  margin-bottom: 0;
+}
+
+
+/* ===== TYPOGRAPHY ===== */
+
+.manifesto-block h1,
+.manifesto-block h2,
+.manifesto-block h3,
+.manifesto-block h4,
+.manifesto-block p {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ===== KICKER ===== */
+
+.manifesto-kicker {
+  color: var(--muted);
+
+  font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 400;
+
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+
+  margin-bottom: 24px !important;
+}
+
+
+/* Main section title */
+
+.manifesto-block h1 {
+  color: var(--text);
+
+  font-size: clamp(21px, 1.9vw, 27px);
+  font-weight: 600;
+
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+
+  margin-bottom: 38px;
+}
+
+
+/* Major name */
+
+.manifesto-block h2 {
+  color: var(--text);
+
+  font-size: clamp(19px, 1.7vw, 24px);
+  font-weight: 600;
+
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+
+  margin-bottom: 12px;
+}
+
+
+/* Concept label */
+
+.manifesto-block h3 {
+  color: var(--text);
+
+  font-size: clamp(15px, 1.25vw, 18px);
+  font-weight: 500;
+
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+
+  margin-bottom: 25px;
+}
+
+
+/* Question */
+
+.manifesto-block h4 {
+  color: var(--text);
+
+  font-size: clamp(15px, 1.25vw, 18px);
+  font-weight: 500;
+
+  line-height: 1.6;
+  letter-spacing: 0.025em;
+
+  margin-bottom: 25px;
+}
+
+
+/* Body */
+
+.manifesto-block p {
+  color: var(--muted);
+
+  font-size: clamp(15px, 1.25vw, 18px);
+  font-weight: 400;
+
+  line-height: 1.65;
+  letter-spacing: 0.025em;
+
+  margin-bottom: 22px;
+}
+
+.manifesto-block p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ===== EMPHASIS ===== */
+
+.manifesto-intro p:first-of-type {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.manifesto-bridge h2,
+.manifesto-emphasis h2 {
+  color: var(--text);
+}
+
+.manifesto-final {
+  color: var(--text) !important;
+
+  font-size: clamp(18px, 1.5vw, 21px) !important;
+  font-weight: 500 !important;
+
+  line-height: 1.55 !important;
+  letter-spacing: 0.08em !important;
+
+  margin-top: 50px !important;
+}
+
+
+/* ===== FOOTER ===== */
+
+.manifesto-footer {
+  text-align: center;
+
+  padding:
+    0
+    6vw
+    5vh;
+
+  color: var(--faint);
+
+  font-size: 8px;
+  font-weight: 500;
+
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  .manifesto-header {
+    height: 116px;
+  }
+
+  .manifesto-back,
+  .manifesto-main {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+  }
+
+  .manifesto-back {
+    left: 6vw;
+  }
+
+  .manifesto-main {
+    right: 6vw;
+  }
+
+  .manifesto-logo {
+    left: 32vw;
+
+    width: clamp(150px, 42vw, 240px);
+  }
+
+  .manifesto-content {
+    padding:
+      178px
+      6vw
+      10vh;
+  }
+
+  .manifesto-block {
+    margin-bottom: 70px;
+  }
+
+  .manifesto-intro {
+    margin-bottom: 88px;
+  }
+
+  .manifesto-bridge {
+    margin-top: 88px;
+    margin-bottom: 88px;
+  }
+
+  .manifesto-branch {
+    margin-top: 84px;
+    margin-bottom: 84px;
+  }
+
+  .manifesto-sub {
+    margin-left: 4%;
+    margin-bottom: 68px;
+  }
+
+  .manifesto-emphasis {
+    margin-top: 82px;
+    margin-bottom: 82px;
+  }
+
+  .manifesto-closing {
+    margin-top: 94px;
+  }
+
+  .manifesto-kicker {
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    margin-bottom: 20px !important;
+  }
+
+  .manifesto-block h1 {
+    font-size: 20px;
+    letter-spacing: 0.13em;
+    margin-bottom: 32px;
+  }
+
+  .manifesto-block h2 {
+    font-size: 18px;
+    letter-spacing: 0.13em;
+  }
+
+  .manifesto-block h3 {
+    font-size: 15px;
+    letter-spacing: 0.11em;
+    margin-bottom: 22px;
+  }
+
+  .manifesto-block h4 {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 22px;
+  }
+
+  .manifesto-block p {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .manifesto-final {
+    font-size: 17px !important;
+    letter-spacing: 0.06em !important;
+    margin-top: 42px !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+  .manifesto-header {
+    height: 100px;
+  }
+
+  .manifesto-back,
+  .manifesto-main {
+    font-size: 8px;
+    letter-spacing: 0.18em;
+  }
+
+  .manifesto-back {
+    left: 5vw;
+  }
+
+  .manifesto-main {
+    right: 5vw;
+  }
+
+  .manifesto-logo {
+    left: 30vw;
+
+    width: clamp(120px, 46vw, 200px);
+  }
+
+  .manifesto-content {
+    padding:
+      156px
+      5vw
+      9vh;
+  }
+
+  .manifesto-block {
+    margin-bottom: 58px;
+  }
+
+  .manifesto-intro {
+    margin-bottom: 72px;
+  }
+
+  .manifesto-bridge {
+    margin-top: 72px;
+    margin-bottom: 72px;
+  }
+
+  .manifesto-branch {
+    margin-top: 68px;
+    margin-bottom: 68px;
+  }
+
+  .manifesto-sub {
+    margin-left: 0;
+    margin-bottom: 58px;
+  }
+
+  .manifesto-emphasis {
+    margin-top: 68px;
+    margin-bottom: 68px;
+  }
+
+  .manifesto-closing {
+    margin-top: 78px;
+  }
+
+  .manifesto-kicker {
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.06em;
+    margin-bottom: 18px !important;
+  }
+
+  .manifesto-block h1 {
+    font-size: 18px;
+    letter-spacing: 0.11em;
+    margin-bottom: 28px;
+  }
+
+  .manifesto-block h2 {
+    font-size: 17px;
+    letter-spacing: 0.11em;
+  }
+
+  .manifesto-block h3 {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .manifesto-block h4 {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .manifesto-block p {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 19px;
+  }
+
+  .manifesto-final {
+    font-size: 16px !important;
+    letter-spacing: 0.05em !important;
+    margin-top: 38px !important;
+  }
+
+  .manifesto-footer {
+    font-size: 7px;
+    letter-spacing: 0.18em;
+  }
+
+}
