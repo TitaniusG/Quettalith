@@ -192,7 +192,7 @@
 }
 
 
-/* Main section title */
+/* ===== MAIN TITLE ===== */
 
 .manifesto-block h1 {
   color: var(--text);
@@ -207,7 +207,7 @@
 }
 
 
-/* Major name */
+/* ===== MAJOR NAME ===== */
 
 .manifesto-block h2 {
   color: var(--text);
@@ -222,7 +222,7 @@
 }
 
 
-/* Concept label */
+/* ===== CONCEPT LABEL ===== */
 
 .manifesto-block h3 {
   color: var(--text);
@@ -237,7 +237,7 @@
 }
 
 
-/* Question */
+/* ===== QUESTION ===== */
 
 .manifesto-block h4 {
   color: var(--text);
@@ -252,7 +252,7 @@
 }
 
 
-/* Body */
+/* ===== BODY ===== */
 
 .manifesto-block p {
   color: var(--muted);
@@ -283,6 +283,9 @@
   color: var(--text);
 }
 
+
+/* ===== FINAL STATEMENT ===== */
+
 .manifesto-final {
   color: var(--text) !important;
 
@@ -293,6 +296,44 @@
   letter-spacing: 0.08em !important;
 
   margin-top: 50px !important;
+}
+
+
+/* ===== ACQUISITION LINK ===== */
+
+.manifesto-acquisition {
+  margin-top: 76px !important;
+  margin-bottom: 0 !important;
+
+  text-align: center;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  line-height: 2;
+  letter-spacing: 0.22em;
+}
+
+.manifesto-acquisition a,
+.manifesto-acquisition a:visited {
+  color: var(--muted);
+  text-decoration: none;
+
+  transition:
+    color 0.4s ease,
+    text-shadow 0.4s ease;
+}
+
+.manifesto-acquisition a:hover {
+  color: var(--text);
+  text-shadow: 0 0 18px var(--glow);
+}
+
+.manifesto-acquisition span {
+  color: var(--text);
+
+  font-size: 10px;
+  letter-spacing: 0.2em;
 }
 
 
@@ -538,6 +579,17 @@
     font-size: 16px !important;
     letter-spacing: 0.05em !important;
     margin-top: 38px !important;
+  }
+
+  .manifesto-acquisition {
+    margin-top: 58px !important;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+
+  .manifesto-acquisition span {
+    font-size: 8px;
+    letter-spacing: 0.14em;
   }
 
   .manifesto-footer {
