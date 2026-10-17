@@ -319,6 +319,8 @@
   color: var(--muted);
   text-decoration: none;
 
+  animation: cta-pulse 3.6s ease-in-out infinite;
+
   transition:
     color 0.4s ease,
     text-shadow 0.4s ease;
